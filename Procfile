@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/*.war "--spring.data.mongodb.uri=mongodb+srv://$MONGODB_USER:$MONGODB_PASSWORD@$MONGODB_CLUSTER-gplxw.gcp.mongodb.net/$MONGODB_COLLECTION?retryWrites=true&w=majority" "--spring.main.banner-mode=off"
