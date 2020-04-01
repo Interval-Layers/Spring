@@ -1,1 +1,1 @@
-rootProject.name = "spring.mongo"
+rootProject.name = "spring"
