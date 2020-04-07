@@ -58,10 +58,5 @@ class ApplicationController {
     @ResponseBody
     @RequestMapping("/entity")
     fun entity() = entityPage(entityRepository.list)
-
-    @ResponseBody
-    @RequestMapping("/update")
-    fun update() = createHTML().htmlWithDoctype {
-
-    }
+    
 }
