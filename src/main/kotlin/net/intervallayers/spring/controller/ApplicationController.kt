@@ -57,49 +57,7 @@ class ApplicationController {
 
     @ResponseBody
     @RequestMapping("/entity")
-    fun entity() = createHTML().htmlWithDoctype {
-        head {
-            title("Entity page")
-            metaHeadConstructor()
-            linkHeadConstructor()
-        }
-        body {
-            headerBodyConstructor()
-            div(classes = "body-container") {
-                h1(classes = "title") { text("Viewer of entities") }
-                div(classes = "d-flex") {
-                    h2 { text("Size of Entity == ${entityRepository.size}") }
-                    a(href = "/", classes = "button-container") {  text("Return to the main page ->>") }
-                }
-                table {
-                    with(entityRepository.list) {
-                        forEach {
-                            tr {
-                                td {
-                                    text("ID -> ${it.id}")
-                                }
-                                td {
-                                    text("TIME -> ${it.time}")
-                                }
-                                td {
-                                    a(href = "javascript:;", classes = "name_link") {
-                                        attributes["data-fancybox"] = ""
-                                        attributes["data-src"] = "#trueModal"
-                                        attributes["data-modal"] = "#true"
-                                        attributes["data-name"] = it.name
-                                        text("NAME -> ${it.name.let { if (it == "") "NULL" else it }}")
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            footerBodyConstructor() {
-
-            }
-        }
-    }
+    fun entity() = entityPage(entityRepository.list)
 
     @ResponseBody
     @RequestMapping("/update")
