@@ -1,12 +1,8 @@
 package net.intervallayers.spring.controller
 
-import kotlinx.html.*
-import kotlinx.html.stream.*
 import net.intervallayers.spring.*
 import net.intervallayers.spring.view.page.*
 import net.intervallayers.spring.model.*
-import net.intervallayers.spring.model.html.*
-import net.intervallayers.spring.model.html.element.*
 import org.springframework.beans.factory.annotation.*
 import org.springframework.http.*
 import org.springframework.stereotype.*
@@ -37,22 +33,7 @@ class ApplicationController {
             name = name
         ).also { entityRepository.insert(it) }
 
-        return createHTML().htmlWithDoctype {
-            head {
-                title("Insert page")
-                metaHeadConstructor()
-                linkHeadConstructor()
-            }
-            body {
-                headerBodyConstructor()
-                div(classes = "body-container") {
-                    h1("title") { text("Inserted \"${Entity::class.java.simpleName}\": ") }
-                    h2 { pre { text(entity) } }
-                    a(href = "/", classes = "button-container") { text("Return to the main page ->>") }
-                }
-                footerBodyConstructor()
-            }
-        }
+        return insertPage(entity)
     }
 
     @ResponseBody
