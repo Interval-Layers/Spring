@@ -19,7 +19,7 @@ class ApplicationController {
 
     @ResponseBody
     @RequestMapping("/")
-    fun index() = indexPage()
+    fun index(page: Index) = page.document
 
     @ResponseBody
     @RequestMapping("/insert")
