@@ -19,11 +19,11 @@ class ApplicationController {
 
     @ResponseBody
     @RequestMapping("/")
-    fun index(page: Index) = page.document
+    fun index(page: IndexPage) = page.document
 
     @ResponseBody
     @RequestMapping("/insert")
-    fun insert(@RequestParam name: String, page: Insert): String {
+    fun insert(@RequestParam name: String, page: InsertPage): String {
         if (name.isBlank())
             throw ResponseStatusException(HttpStatus.BAD_REQUEST)
 
