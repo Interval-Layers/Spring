@@ -13,5 +13,5 @@ class ErrorController : ErrorController {
 
     @ResponseBody
     @RequestMapping("/error")
-    fun handleError(request: HttpServletRequest) = errorPage(request)
+    fun handleError(request: HttpServletRequest, page: ErrorPage) = page.setRequest(request).document
 }
