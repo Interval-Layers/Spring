@@ -24,7 +24,7 @@ fun BODY.headerBodyConstructor() {
 }
 
 @HtmlTagMarker
-fun BODY.footerBodyConstructor(classes : String? = null, body: (DIV.() -> Unit)? = null) {
+fun BODY.footerBodyConstructor(classes: String? = null, body: (DIV.() -> Unit)? = null) {
     footer {
         div(classes = "footer-container d-flex") {
             p { text("product by: nourepide") }
