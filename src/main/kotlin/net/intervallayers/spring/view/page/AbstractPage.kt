@@ -19,7 +19,10 @@ abstract class AbstractPage : Page {
 
     protected open fun HTML.body() {}
 
-    override val document = createHTML()
+    override val document
+        get() = render()
+
+    private fun render() = createHTML()
         .htmlWithDoctype {
             head()
             body()
