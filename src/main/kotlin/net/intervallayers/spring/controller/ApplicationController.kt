@@ -33,7 +33,7 @@ class ApplicationController {
                 .setTime(SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(Date()))
                 .setName(name)
                 .build()
-                .also { entityRepository.insert(it) }
+                .insert(entityRepository)
         }.document
     }
 
