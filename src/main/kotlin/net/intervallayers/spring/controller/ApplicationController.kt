@@ -1,8 +1,8 @@
 package net.intervallayers.spring.controller
 
 import net.intervallayers.spring.*
-import net.intervallayers.spring.view.page.*
 import net.intervallayers.spring.model.*
+import net.intervallayers.spring.view.page.*
 import org.springframework.beans.factory.annotation.*
 import org.springframework.http.*
 import org.springframework.stereotype.*
@@ -23,21 +23,21 @@ class ApplicationController {
 
     @ResponseBody
     @RequestMapping("/insert")
-    fun insert(@RequestParam name: String): String {
+    fun insert(@RequestParam name: String, page: Insert): String {
         if (name.isBlank())
             throw ResponseStatusException(HttpStatus.BAD_REQUEST)
 
-        val entity = Entity(
-            id = entityRepository.size.toString(),
-            time = SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(Date()),
-            name = name
-        ).also { entityRepository.insert(it) }
-
-        return insertPage(entity)
+        return page.setEntity {
+            EntityBuilder()
+                .setId(entityRepository.size.toString())
+                .setTime(SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(Date()))
+                .setName(name)
+                .build()
+                .also { entityRepository.insert(it) }
+        }.document
     }
 
     @ResponseBody
     @RequestMapping("/entity")
     fun entity() = entityPage(entityRepository.list)
-    
 }
