@@ -39,5 +39,5 @@ class ApplicationController {
 
     @ResponseBody
     @RequestMapping("/entity")
-    fun entity() = entityPage(entityRepository.list)
+    fun entity(page: EntityPage) = page.setEntities(entityRepository.list).document
 }
