@@ -7,7 +7,10 @@ import net.intervallayers.spring.model.html.element.*
 
 abstract class AbstractPage : Page {
 
-    override val title = "${this.javaClass.simpleName} page"
+    override val title = this.javaClass
+        .simpleName
+        .replace("Page", "")
+        .plus(" page")
 
     protected open fun HTML.head() {
         head {
