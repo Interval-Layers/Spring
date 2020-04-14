@@ -6,7 +6,7 @@ import net.intervallayers.spring.model.html.element.*
 import org.springframework.stereotype.*
 
 @Component
-class Index : AbstractPage() {
+class IndexPage : AbstractPage() {
     override fun HTML.body() {
         body {
             headerBodyConstructor()

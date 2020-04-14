@@ -7,9 +7,9 @@ import net.intervallayers.spring.model.html.element.*
 import org.springframework.stereotype.*
 
 @Component
-class Insert : AbstractPage() {
+class InsertPage : AbstractPage() {
 
-    private var entity: Entity? = null
+    private lateinit var entity: Entity
 
     fun setEntity(block: (Unit) -> Entity) = also { entity = block(Unit) }
 
