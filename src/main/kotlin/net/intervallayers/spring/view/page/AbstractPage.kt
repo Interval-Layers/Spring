@@ -3,14 +3,15 @@ package net.intervallayers.spring.view.page
 import kotlinx.html.*
 import kotlinx.html.stream.*
 import net.intervallayers.extensions.html.*
+import net.intervallayers.extensions.string.*
 import net.intervallayers.spring.view.element.*
 
 abstract class AbstractPage : Page {
 
     override val title = this.javaClass
         .simpleName
-        .replace("Page", "")
-        .plus(" page")
+        .remove("Page")
+        .add(" page")
 
     override val document
         get() = render()
