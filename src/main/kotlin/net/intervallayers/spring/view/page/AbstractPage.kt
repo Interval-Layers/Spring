@@ -2,8 +2,8 @@ package net.intervallayers.spring.view.page
 
 import kotlinx.html.*
 import kotlinx.html.stream.*
-import net.intervallayers.spring.model.html.*
-import net.intervallayers.spring.model.html.element.*
+import net.intervallayers.extensions.html.*
+import net.intervallayers.spring.view.element.*
 
 abstract class AbstractPage : Page {
 
@@ -24,8 +24,8 @@ abstract class AbstractPage : Page {
     protected open fun HTML.head() {
         head {
             title(this@AbstractPage.title)
-            metaHeadConstructor()
-            linkHeadConstructor()
+            metaElement()
+            linkElement()
         }
     }
 

@@ -1,8 +1,8 @@
 package net.intervallayers.spring.view.page
 
 import kotlinx.html.*
+import net.intervallayers.extensions.html.*
 import net.intervallayers.spring.model.*
-import net.intervallayers.spring.model.html.*
 import org.springframework.stereotype.*
 
 @Component

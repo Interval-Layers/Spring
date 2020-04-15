@@ -1,4 +1,4 @@
-package net.intervallayers.spring.model.html
+package net.intervallayers.extensions.html
 
 import kotlinx.html.*
 

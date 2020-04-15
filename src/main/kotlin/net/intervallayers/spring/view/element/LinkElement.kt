@@ -1,14 +1,8 @@
-package net.intervallayers.spring.model.html.element
+package net.intervallayers.spring.view.element
 
 import kotlinx.html.*
 
-@HtmlTagMarker
-fun HEAD.metaHeadConstructor(charset: String = "UTF-8") {
-    consumer.meta(charset)
-}
-
-@HtmlTagMarker
-fun HEAD.linkHeadConstructor(stylesheet: String = "index.css") {
+fun HEAD.linkElement(stylesheet: String = "index.css") {
     consumer.link {
         rel = "stylesheet"
         type = "text/css"

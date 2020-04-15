@@ -2,7 +2,7 @@ package net.intervallayers.spring.view.page
 
 import kotlinx.html.*
 import net.intervallayers.spring.*
-import net.intervallayers.spring.model.html.element.*
+import net.intervallayers.spring.view.element.*
 import org.springframework.stereotype.*
 
 @Component
