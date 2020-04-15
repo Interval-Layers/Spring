@@ -12,16 +12,6 @@ abstract class AbstractPage : Page {
         .replace("Page", "")
         .plus(" page")
 
-    protected open fun HTML.head() {
-        head {
-            title(this@AbstractPage.title)
-            metaHeadConstructor()
-            linkHeadConstructor()
-        }
-    }
-
-    protected open fun HTML.body() {}
-
     override val document
         get() = render()
 
@@ -30,4 +20,24 @@ abstract class AbstractPage : Page {
             head()
             body()
         }
+
+    protected open fun HTML.head() {
+        head {
+            title(this@AbstractPage.title)
+            metaHeadConstructor()
+            linkHeadConstructor()
+        }
+    }
+
+    protected open fun HTML.body() {
+        body {
+            header()
+            section()
+            footer()
+        }
+    }
+
+    protected open fun BODY.header() = headerElement()
+    protected open fun BODY.main() = Unit
+    protected open fun BODY.footer() = footerElement()
 }
