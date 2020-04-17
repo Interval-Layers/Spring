@@ -17,6 +17,6 @@ fun BODY.footerElement(classes: String? = null, body: (DIV.() -> Unit)? = null) 
 
         script(src = "https://code.jquery.com/jquery-3.4.1.min.js")
         script(src = "https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js")
-        script(src = "javascript/main.js")
+        script(src = "/javascript/main.js")
     }
 }

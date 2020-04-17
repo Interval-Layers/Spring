@@ -6,7 +6,7 @@ fun HEAD.linkElement(stylesheet: String = "index.css") {
     consumer.link {
         rel = "stylesheet"
         type = "text/css"
-        href = "stylesheet/$stylesheet"
+        href = "/stylesheet/$stylesheet"
     }
     consumer.link {
         rel = "stylesheet"
