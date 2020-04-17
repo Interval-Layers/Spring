@@ -54,10 +54,12 @@ abstract class GenericPage : AbstractPage() {
      * @see AbstractPage.main
      * @see AbstractPage.footer
      */
-    override fun HTML.body() = body {
-        header()
-        main()
-        footer()
+    override fun HTML.body() {
+        body {
+            header()
+            main()
+            footer()
+        }
     }
 
     /**
