@@ -50,9 +50,9 @@ abstract class GenericPage : AbstractPage() {
     /**
      * Generic BODY DOM of HTML document
      * @see kotlinx.html.BODY
-     * @see AbstractPage.header
-     * @see AbstractPage.main
-     * @see AbstractPage.footer
+     * @see GenericPage.header
+     * @see GenericPage.main
+     * @see GenericPage.footer
      */
     override fun HTML.body() {
         body {
@@ -66,6 +66,12 @@ abstract class GenericPage : AbstractPage() {
      * Apply element in structure of document
      * @see net.intervallayers.spring.view.element
      */
-    override fun BODY.header() = headerElement()
-    override fun BODY.footer() = footerElement()
+    protected open fun BODY.header() = headerElement()
+    protected open fun BODY.footer() = footerElement()
+
+    /**
+     * General unique element of page
+     * By default this is what the user sees
+     */
+    protected abstract fun BODY.main()
 }
