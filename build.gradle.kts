@@ -2,14 +2,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	war
-	kotlin("jvm") version "1.3.71"
-	kotlin("plugin.spring") version "1.3.71"
+	kotlin("jvm") version "1.3.72"
+	kotlin("plugin.spring") version "1.3.72"
 	id("org.springframework.boot") version "2.2.5.RELEASE"
 	id("io.spring.dependency-management") version "1.0.9.RELEASE"
 }
 
 group = "net.intervallayers"
-version = "0.0.91"
+version = "0.0.92"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 val developmentOnly: Configuration by configurations.creating
