@@ -22,7 +22,7 @@ abstract class GenericPage : AbstractPage() {
     /**
      * Allow re create document each call of variable
      */
-    override val document
+    final override val document
         get() = render()
 
     /**
