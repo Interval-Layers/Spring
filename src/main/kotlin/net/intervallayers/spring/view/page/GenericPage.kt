@@ -10,8 +10,8 @@ import net.intervallayers.spring.view.element.*
 abstract class GenericPage : AbstractPage() {
 
     /**
-     * Automatic title generation
-     * By default Name of class with word "page"
+     * Automatic title generation.
+     * By default Name of class with word "page".
      * @sample "Generic page"
      */
     override val title = this.javaClass
@@ -20,13 +20,13 @@ abstract class GenericPage : AbstractPage() {
         .add(" page")
 
     /**
-     * Allow re create document each call of variable
+     * Allow re create document each call of variable.
      */
     final override val document
         get() = render()
 
     /**
-     * Generate HTML document as String with Doctype as HTML 5
+     * Generate HTML document as String with Doctype as HTML 5.
      * @see AbstractPage.head
      * @see AbstractPage.body
      */
@@ -37,7 +37,7 @@ abstract class GenericPage : AbstractPage() {
         }
 
     /**
-     * Generic HEAD DOM of HTML document
+     * Generic HEAD DOM of HTML document.
      * @see kotlinx.html.HEAD
      */
     override fun HTML.head() = HeadBuilder(consumer)
@@ -48,7 +48,7 @@ abstract class GenericPage : AbstractPage() {
         .toUnit()
 
     /**
-     * Generic BODY DOM of HTML document
+     * Generic BODY DOM of HTML document.
      * @see kotlinx.html.BODY
      * @see GenericPage.header
      * @see GenericPage.main
@@ -63,15 +63,15 @@ abstract class GenericPage : AbstractPage() {
     }
 
     /**
-     * Apply element in structure of document
+     * Apply element in structure of document.
      * @see net.intervallayers.spring.view.element
      */
     protected open fun BODY.header() = headerElement()
     protected open fun BODY.footer() = footerElement()
 
     /**
-     * General unique element of page
-     * By default this is what the user sees
+     * General unique element of page.
+     * By default this is what the user sees.
      */
     protected abstract fun BODY.main()
 }
