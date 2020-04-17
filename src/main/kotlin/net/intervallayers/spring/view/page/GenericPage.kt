@@ -2,6 +2,7 @@ package net.intervallayers.spring.view.page
 
 import kotlinx.html.*
 import kotlinx.html.stream.*
+import net.intervallayers.extensions.generic.*
 import net.intervallayers.extensions.html.*
 import net.intervallayers.extensions.string.*
 import net.intervallayers.spring.view.element.*
@@ -39,11 +40,12 @@ abstract class GenericPage : AbstractPage() {
      * Generic HEAD DOM of HTML document
      * @see kotlinx.html.HEAD
      */
-    override fun HTML.head() = head {
-        title(this@GenericPage.title)
-        metaElement()
-        linkElement()
-    }
+    override fun HTML.head() = HeadBuilder(consumer)
+        .addTitle(this@GenericPage.title)
+        .setCharset()
+        .addMainStylesheet()
+        .addAnotherStylesheet("https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css")
+        .toUnit()
 
     /**
      * Generic BODY DOM of HTML document
