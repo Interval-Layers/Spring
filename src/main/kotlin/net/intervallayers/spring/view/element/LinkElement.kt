@@ -2,7 +2,7 @@ package net.intervallayers.spring.view.element
 
 import kotlinx.html.*
 
-fun HEAD.linkElement(stylesheet: String = "index.css") {
+fun HEAD.linkElement(stylesheet: String = "main.css") {
     consumer.link {
         rel = "stylesheet"
         type = "text/css"
