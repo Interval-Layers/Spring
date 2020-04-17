@@ -1,44 +1,14 @@
 package net.intervallayers.spring.view.page
 
 import kotlinx.html.*
-import kotlinx.html.stream.*
-import net.intervallayers.extensions.html.*
-import net.intervallayers.extensions.string.*
-import net.intervallayers.spring.view.element.*
 
+/**
+ * Structure of HTML document
+ */
 abstract class AbstractPage : Page {
-
-    override val title = this.javaClass
-        .simpleName
-        .remove("Page")
-        .add(" page")
-
-    override val document
-        get() = render()
-
-    private fun render() = createHTML()
-        .htmlWithDoctype {
-            head()
-            body()
-        }
-
-    protected open fun HTML.head() {
-        head {
-            title(this@AbstractPage.title)
-            metaElement()
-            linkElement()
-        }
-    }
-
-    protected open fun HTML.body() {
-        body {
-            header()
-            section()
-            footer()
-        }
-    }
-
-    protected open fun BODY.header() = headerElement()
-    protected open fun BODY.main() = Unit
-    protected open fun BODY.footer() = footerElement()
+    protected abstract fun HTML.head()
+    protected abstract fun HTML.body()
+    protected abstract fun BODY.header()
+    protected abstract fun BODY.main()
+    protected abstract fun BODY.footer()
 }

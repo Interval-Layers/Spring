@@ -6,7 +6,7 @@ import net.intervallayers.spring.model.*
 import org.springframework.stereotype.*
 
 @Component
-class InsertPage : AbstractPage() {
+class InsertPage : GenericPage() {
 
     private lateinit var entity: Entity
 

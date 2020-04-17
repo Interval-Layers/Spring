@@ -6,7 +6,8 @@ import net.intervallayers.spring.view.element.*
 import org.springframework.stereotype.*
 
 @Component
-class IndexPage : AbstractPage() {
+class IndexPage : GenericPage() {
+
     override fun BODY.main() {
         main(classes = "body-container") {
             h1("title") { text(Application::class.java.packageName.toUpperCase()) }

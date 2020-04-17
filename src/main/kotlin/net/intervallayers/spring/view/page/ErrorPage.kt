@@ -5,7 +5,7 @@ import org.springframework.stereotype.*
 import javax.servlet.http.*
 
 @Component
-class ErrorPage : AbstractPage() {
+class ErrorPage : GenericPage() {
 
     private lateinit var request: HttpServletRequest
 

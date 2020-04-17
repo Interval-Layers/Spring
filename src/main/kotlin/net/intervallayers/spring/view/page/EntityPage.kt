@@ -3,7 +3,7 @@ package net.intervallayers.spring.view.page
 import kotlinx.html.*
 import net.intervallayers.spring.model.*
 
-class EntityPage : AbstractPage() {
+class EntityPage : GenericPage() {
 
     private lateinit var entities: List<Entity>
 
