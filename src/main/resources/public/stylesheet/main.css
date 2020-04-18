@@ -166,7 +166,6 @@ button {
     box-shadow: none;
 }
 
-
 .input-form {
     width: 100%;
     border-radius: 7px;
@@ -245,23 +244,3 @@ td:last-child:hover {
 .apply-flex {
     display: flex;
 }
-
-
-/*.login:hover .horse {*/
-/*    opacity: 1;*/
-/*}*/
-
-/*.horse {*/
-/*    position: absolute;*/
-/*    width: 100%;*/
-/*    top: 350px;*/
-/*    right: 0;*/
-/*    left: 0;*/
-/*    margin: 0 auto;*/
-/*    font-size: 104px;*/
-/*    z-index: -1;*/
-/*    opacity: 0;*/
-/*    transition: ease-in .7s;*/
-/*    text-align: center;*/
-/*}*/
-
