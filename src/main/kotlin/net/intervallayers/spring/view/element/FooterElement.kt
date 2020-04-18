@@ -9,7 +9,7 @@ fun BODY.footerElement(tags: (FOOTER.() -> Unit) = {}) {
     footer {
         section(classes = "footer-container") {
             p { text("product by: nourepide") }
-            p { text(SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(Date())) }
+            p { text(SimpleDateFormat("zzz dd/M/yyyy hh:mm:ss:SSS").format(Date())) }
         }
 
         tags()
