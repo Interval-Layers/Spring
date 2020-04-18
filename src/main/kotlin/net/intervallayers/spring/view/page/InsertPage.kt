@@ -13,10 +13,12 @@ class InsertPage : GenericPage() {
     fun setEntity(block: (Unit) -> Entity) = also { entity = block(Unit) }
 
     override fun BODY.main() {
-        main(classes = "body-container") {
-            h1("title") { text("Inserted \"${Entity::class.java.simpleName}\": ") }
-            h2 { pre { text(entity) } }
-            a(href = "/", classes = "button-container") { text("Return to the main page ->>") }
+        main {
+            section(classes = "main-container") {
+                h1("title") { text("Inserted \"${Entity::class.java.simpleName}\": ") }
+                h2 { pre { text(entity) } }
+                a(href = "/", classes = "button-container") { text("Return to the main page ->>") }
+            }
         }
     }
 }

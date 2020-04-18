@@ -9,19 +9,21 @@ import org.springframework.stereotype.*
 class IndexPage : GenericPage() {
 
     override fun BODY.main() {
-        main(classes = "body-container") {
-            h1("title") { text(Application::class.java.packageName.toUpperCase()) }
-            div(classes = "button-wrap") {
-                a(href = "javascript:;", classes = "button-container") {
-                    attributes["data-fancybox"] = ""
-                    attributes["data-src"] = "#insertWindow"
-                    attributes["data-touch"] = "#false"
-                    attributes["data-smallBtn"] = "#false"
+        main {
+            section(classes = "main-container") {
+                h1("title") { text(Application::class.java.packageName.toUpperCase()) }
+                div(classes = "button-wrap") {
+                    a(href = "javascript:;", classes = "button-container") {
+                        attributes["data-fancybox"] = ""
+                        attributes["data-src"] = "#insertWindow"
+                        attributes["data-touch"] = "#false"
+                        attributes["data-smallBtn"] = "#false"
 
-                    text("Insert new Entity ->>")
+                        text("Insert new Entity ->>")
+                    }
                 }
+                a(href = "/entity", classes = "button-container") { text("View all Entities ->>") }
             }
-            a(href = "/entity", classes = "button-container") { text("View all Entities ->>") }
         }
     }
 

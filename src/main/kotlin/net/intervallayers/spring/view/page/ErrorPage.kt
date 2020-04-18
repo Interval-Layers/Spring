@@ -12,20 +12,22 @@ class ErrorPage : GenericPage() {
     fun setRequest(request: HttpServletRequest) = also { it.request = request }
 
     override fun BODY.main() {
-        main(classes = "body-container") {
-            h1("title") {
-                text("An error has occurred")
-            }
-            h1("title") {
-                when (val type = request.getAttribute("javax.servlet.error.status_code") as? Int) {
-                    null -> text("Type: Undefined")
-                    else -> text("Type: $type")
+        main {
+            section(classes = "main-container") {
+                h1("title") {
+                    text("An error has occurred")
                 }
+                h1("title") {
+                    when (val type = request.getAttribute("javax.servlet.error.status_code") as? Int) {
+                        null -> text("Type: Undefined")
+                        else -> text("Type: $type")
+                    }
+                }
+                h3 {
+                    text("Method: " + request.method)
+                }
+                a(href = "/", classes = "button-container") { text("Return to the main page ->>") }
             }
-            h3 {
-                text("Method: " + request.method)
-            }
-            a(href = "/", classes = "button-container") { text("Return to the main page ->>") }
         }
     }
 }
