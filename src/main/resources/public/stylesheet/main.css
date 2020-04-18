@@ -15,8 +15,47 @@
  */
 
 :root {
-    --black-color: #212121;
-    --white-color: #DDDDDD;
+    --color-blue: #0a84ff;
+    --color-green: #30d158;
+    --color-indigo: #5e5ce6;
+    --color-orange: #ff9f0a;
+    --color-pink: #ff375f;
+    --color-purple: #bf5af2;
+    --color-red: #ff453a;
+    --color-teal: #64d2ff;
+    --color-yellow: #ffd60a;
+    --color-gray: #8e8e93;
+    --color-gray-dark-1: #636366;
+    --color-gray-dark-2: #48484a;
+    --color-gray-dark-3: #3a3a3c;
+    --color-gray-dark-4: #2c2c2e;
+    --color-gray-dark-5: #1c1c1e;
+    --color-gray-light-1: #aeaeb2;
+    --color-gray-light-2: #c7c7cc;
+    --color-gray-light-3: #d1d1d6;
+    --color-gray-light-4: #e5e5ea;
+    --color-gray-light-5: #f2f2f7;
+
+    --color-rgb-blue: 10, 132, 255;
+    --color-rgb-green: 48, 209, 88;
+    --color-rgb-indigo: 94, 92, 230;
+    --color-rgb-orange: 255, 159, 10;
+    --color-rgb-pink: 255, 55, 95;
+    --color-rgb-purple: 191, 90, 242;
+    --color-rgb-red: 255, 69, 58;
+    --color-rgb-teal: 100, 210, 255;
+    --color-rgb-yellow: 255, 214, 10;
+    --color-rgb-gray: 142, 142, 147;
+    --color-rgb-gray-dark-1: 99, 99, 102;
+    --color-rgb-gray-dark-2: 72, 72, 74;
+    --color-rgb-gray-dark-3: 58, 58, 60;
+    --color-rgb-gray-dark-4: 44, 44, 46;
+    --color-rgb-gray-dark-5: 28, 28, 30;
+    --color-rgb-gray-light-1: 174, 174, 178;
+    --color-rgb-gray-light-2: 199, 199, 204;
+    --color-rgb-gray-light-3: 209, 209, 214;
+    --color-rgb-gray-light-4: 229, 229, 234;
+    --color-rgb-gray-light-5: 242, 242, 247;
 }
 
 /**
@@ -30,8 +69,8 @@
 }
 
 body {
-    background-color: var(--black-color);
-    color: var(--white-color);
+    background: var(--color-gray-dark-5);
+    color: var(--color-gray-light-5);
     font-family: "JetBrains Mono", monospace;
 }
 
@@ -54,12 +93,12 @@ footer {
 a {
     font-weight: bold;
     text-decoration: none;
-    color: var(--white-color);
+    color: var(--color-gray-light-5);
 }
 
 button {
     background-color: transparent;
-    color: var(--white-color);
+    color: var(--color-gray-light-5);
 }
 
 /**
@@ -104,10 +143,9 @@ button {
 .button-container:hover {
     padding-left: 20px;
     padding-right: 20px;
-    background-color: var(--white-color);
-    box-shadow: 0 2px 2px 2px var(--black-color);
-    color: var(--black-color);
-
+    background-color: var(--color-gray-light-5);
+    box-shadow: 0 2px 2px 2px var(--color-gray-dark-5);
+    color: var(--color-gray-dark-5);
 }
 
 .button-wrap {
@@ -133,7 +171,7 @@ button {
     border-radius: 7px;
     margin-top: 4px;
     margin-bottom: 4px;
-    background-color: var(--white-color);
+    background-color: var(--color-gray-light-5);
 }
 
 .apply-flex .button-container:hover .input-form {
@@ -174,7 +212,7 @@ td:last-child {
 }
 
 td:last-child:hover {
-    border: 1px solid var(--white-color);
+    border: 1px solid var(--color-gray-light-5);
     background-color: rgba(255, 255, 255, 0.3);
     color: #029ee5 !important;
 }
