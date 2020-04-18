@@ -4,7 +4,7 @@ import kotlinx.html.*
 
 fun BODY.headerElement() {
     header {
-        div(classes = "header-container d-flex") {
+        section(classes = "header-container") {
             a(href = "/") {
                 h2 { text("Interval Layers") }
             }

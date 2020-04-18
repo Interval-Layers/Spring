@@ -26,15 +26,17 @@ class IndexPage : GenericPage() {
     }
 
     override fun BODY.footer() {
-        footerElement("hidden") {
-            id = "insertWindow"
-            h2 { text("Enter name of Entity") }
-            form(action = "insert", method = FormMethod.get, classes = "apply-flex") {
-                input(type = InputType.text, name = "name", classes = "input-form") {
-                    autoFocus = true
-                    minLength = "3"
+        footerElement {
+            section("hidden") {
+                id = "insertWindow"
+                h2 { text("Enter name of Entity") }
+                form(action = "insert", method = FormMethod.get, classes = "apply-flex") {
+                    input(type = InputType.text, name = "name", classes = "input-form") {
+                        autoFocus = true
+                        minLength = "3"
+                    }
+                    button(classes = "button-container input-button") { text("Enter Entity") }
                 }
-                button(classes = "button-container input-button") { text("Enter Entity") }
             }
         }
     }

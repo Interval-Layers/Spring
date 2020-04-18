@@ -5,15 +5,14 @@ import net.intervallayers.extensions.html.*
 import java.text.*
 import java.util.*
 
-fun BODY.footerElement(classes: String? = null, body: (DIV.() -> Unit)? = null) {
+fun BODY.footerElement(tags: (FOOTER.() -> Unit) = {}) {
     footer {
-        div(classes = "footer-container d-flex") {
+        section(classes = "footer-container") {
             p { text("product by: nourepide") }
             p { text(SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(Date())) }
         }
 
-        if (body != null)
-            DIV(attributesMapOf("class", classes), consumer).visit(body)
+        tags()
 
         script(src = "https://code.jquery.com/jquery-3.4.1.min.js")
         script(src = "https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js")
