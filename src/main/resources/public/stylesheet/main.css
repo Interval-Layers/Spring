@@ -194,6 +194,10 @@ article.card > h3 {
     padding: 8px 10px;
 }
 
+.form-input + .form-button:hover {
+    padding: 8px 20px;
+}
+
 .button-container {
     transition: ease-out .3s;
     padding: 8px 0;
