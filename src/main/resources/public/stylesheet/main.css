@@ -166,7 +166,7 @@ article.card > h3 {
 
 .form-input {
     transition: var(--transition);
-    border-radius: 7px;
+    border-radius: var(--border-radius);
     padding: 8px;
     width: 100%;
     background-color: var(--color-gray-light-5);
@@ -174,7 +174,7 @@ article.card > h3 {
 
 .form-button {
     transition: var(--transition);
-    border-radius: 7px;
+    border-radius: var(--border-radius);
     padding: 8px 0;
     background: transparent;
     font-size: smaller;
@@ -190,7 +190,7 @@ article.card > h3 {
 }
 
 .form-input + .form-button {
-    border-radius: 0 7px 7px 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
     padding: 8px 10px;
 }
 
@@ -199,11 +199,11 @@ article.card > h3 {
 }
 
 .button-container {
-    transition: ease-out .3s;
+    transition: var(--transition);
     padding: 8px 0;
     margin-top: 4px;
     margin-bottom: 4px;
-    border-radius: 7px;
+    border-radius: var(--border-radius);
     display: inline-flex;
 }
 
@@ -238,7 +238,7 @@ td {
 }
 
 td:last-child {
-    transition: ease-in-out .3s;
+    transition: var(--transition);
 }
 
 td:last-child:hover {
