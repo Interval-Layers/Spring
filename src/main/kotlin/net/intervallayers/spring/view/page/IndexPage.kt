@@ -4,42 +4,50 @@ import kotlinx.html.*
 import net.intervallayers.spring.*
 import net.intervallayers.spring.view.element.*
 import org.springframework.stereotype.*
+import kotlin.properties.*
 
 @Component
 class IndexPage : GenericPage() {
+
+    private var sizeOfEntities by Delegates.notNull<Int>()
+
+    fun setSizeOfEntities(size: Int) = also { sizeOfEntities = size }
 
     override fun BODY.main() {
         main {
             section(classes = "main-container") {
                 h1("title") { text(Application::class.java.packageName.toUpperCase()) }
-                div(classes = "button-wrap") {
-                    a(href = "javascript:;", classes = "button-container") {
-                        attributes["data-fancybox"] = ""
-                        attributes["data-src"] = "#insertWindow"
-                        attributes["data-touch"] = "#false"
-                        attributes["data-smallBtn"] = "#false"
 
-                        text("Insert new Entity ->>")
+                div("card-container") {
+                    article(classes = "card") {
+                        h3 { text("Add new Entity") }
+                        form("/insert", classes = "apply-flex") {
+                            id = "cardForm"
+                            input(classes = "form-input", name = "name") {
+                                id = "cardFormInput"
+                                placeholder = "Enter name"
+                            }
+                            button(classes = "form-button") {
+                                onMouseMove = "cardFormButtonHoverStart()"
+                                onMouseOut = "cardFormButtonHoverEnd()"
+                                text("Add Entity")
+                            }
+                        }
+                    }
+
+                    article(classes = "card") {
+                        h3 { text("Status of DataBase") }
+                        p("apply-green") { text("Status: Connected") }
+                        p { text("Collection size: $sizeOfEntities") }
+                        br("apply-margin-8px")
+                        a("/entity", classes = "form-button") { text("View collections") }
                     }
                 }
-                a(href = "/entity", classes = "button-container") { text("View all Entities ->>") }
             }
         }
     }
 
     override fun BODY.footer() {
-        footerElement {
-            section("hidden") {
-                id = "insertWindow"
-                h2 { text("Enter name of Entity") }
-                form(action = "insert", method = FormMethod.get, classes = "apply-flex") {
-                    input(type = InputType.text, name = "name", classes = "input-form") {
-                        autoFocus = true
-                        minLength = "3"
-                    }
-                    button(classes = "button-container input-button") { text("Enter Entity") }
-                }
-            }
-        }
+        footerElement()
     }
 }
