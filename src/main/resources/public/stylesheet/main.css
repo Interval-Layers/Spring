@@ -184,7 +184,7 @@ article.card > h3 {
 }
 
 .form-button:hover {
-    padding: 8px 20px;
+    padding: 8px 10px;
     background: var(--color-gray-light-5);
     color: var(--color-gray-dark-5);
 }
