@@ -28,6 +28,8 @@ class IndexPage : GenericPage() {
                                 placeholder = "Enter name"
                             }
                             button(classes = "form-button") {
+                                onTouchMove = "cardFormButtonHoverStart()"
+                                onTouchCancel = "cardFormButtonHoverEnd()"
                                 onMouseMove = "cardFormButtonHoverStart()"
                                 onMouseOut = "cardFormButtonHoverEnd()"
                                 text("Add Entity")
