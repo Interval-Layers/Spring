@@ -19,7 +19,7 @@ class ApplicationController {
 
     @ResponseBody
     @RequestMapping("/")
-    fun index(page: IndexPage) = page.document
+    fun index(page: IndexPage) = page.setSizeOfEntities(entityRepository.size).document
 
     @ResponseBody
     @RequestMapping("/insert")
