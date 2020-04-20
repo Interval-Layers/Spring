@@ -13,23 +13,18 @@ class EntityPage : GenericPage() {
         main {
             section(classes = "main-container") {
                 h1(classes = "title") { text("Viewer of entities") }
-                div(classes = "d-flex") {
-                    h2 { text("Size of Entity == ${entities.size}") }
-                    a(href = "/", classes = "button-container") { text("Return to the main page ->>") }
-                }
+                a(href = "/", classes = "form-button apply-margin-bottom-8px") { text("Return to the main page") }
                 table {
+                    tr {
+                        td { text("ID") }
+                        td { text("TIME") }
+                        td { text("NAME") }
+                    }
                     entities.forEach {
                         tr {
-                            td { text("ID -> ${it.id}") }
-                            td { text("TIME -> ${it.time}") }
-                            td {
-                                a(href = "javascript:;", classes = "name_link") {
-                                    attributes["data-fancybox"] = ""
-                                    attributes["data-src"] = "#trueModal"
-                                    attributes["data-name"] = it.name
-                                    text("NAME -> ${it.name.let { if (it == "") "NULL" else it }}")
-                                }
-                            }
+                            td { text(it.id) }
+                            td { text(it.time) }
+                            td { text(it.name) }
                         }
                     }
                 }
