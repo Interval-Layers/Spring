@@ -188,41 +188,24 @@ pre {
     display: inline-flex;
 }
 
-.form-button:hover {
+.form-button:not([disabled]):hover {
     padding: 8px 10px;
     background: var(--color-gray-light-5);
     color: var(--color-gray-dark-5);
 }
 
-.form-input + .form-button {
+.form-button:disabled {
+    color: rgba(var(--color-rgb-gray-light-5), 0.5);
+    cursor: default;
+}
+
+.form-input + div > .form-button {
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
     padding: 8px 10px;
 }
 
-.form-input + .form-button:hover {
+.form-input + div > .form-button:not([disabled]):hover {
     padding: 8px 20px;
-}
-
-.button-container {
-    transition: var(--transition);
-    padding: 8px 0;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border-radius: var(--border-radius);
-    display: inline-flex;
-}
-
-.button-container:hover {
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color: var(--color-gray-light-5);
-    color: var(--color-gray-dark-5);
-}
-
-.button-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
 }
 
 /*

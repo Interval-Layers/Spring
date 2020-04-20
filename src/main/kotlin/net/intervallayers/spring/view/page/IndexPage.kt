@@ -25,14 +25,17 @@ class IndexPage : GenericPage() {
                             id = "cardForm"
                             input(classes = "form-input", name = "name") {
                                 id = "cardFormInput"
+                                maxLength = "12"
+                                onInput = "cardFormInputChange()"
                                 placeholder = "Enter name"
                             }
-                            button(classes = "form-button") {
-                                onTouchMove = "cardFormButtonHoverStart()"
-                                onTouchCancel = "cardFormButtonHoverEnd()"
-                                onMouseMove = "cardFormButtonHoverStart()"
-                                onMouseOut = "cardFormButtonHoverEnd()"
-                                text("Add Entity")
+                            div {
+                                button(classes = "form-button") {
+                                    id = "cardFormButton"
+                                    disabled = true
+                                    attributes["data-onmouse"] = "false"
+                                    text("Add Entity")
+                                }
                             }
                         }
                     }
@@ -51,6 +54,6 @@ class IndexPage : GenericPage() {
     }
 
     override fun BODY.footer() {
-        footerElement()
+        footerElement("initFormButtonEvents()")
     }
 }

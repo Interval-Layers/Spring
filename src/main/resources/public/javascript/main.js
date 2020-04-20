@@ -1,20 +1,41 @@
-let borderRadius = getComputedStyle(document.documentElement).getPropertyValue("--border-radius");
+const borderRadius = getComputedStyle(document.documentElement).getPropertyValue("--border-radius");
+const cardFormInput = document.getElementById("cardFormInput");
+const cardFormButton = document.getElementById("cardFormButton");
+const cardForm = document.getElementById("cardForm");
 
 // noinspection JSUnusedGlobalSymbols
-function cardFormButtonHoverStart() {
-    let cardFormInput = document.getElementById("cardFormInput")
+function initFormButtonEvents() {
+    cardFormButton.parentNode.addEventListener("mouseenter", function () {
+        cardFormButton.dataset.onmouse = "true"
+        if (!cardFormButton.disabled) cardFormButtonHoverStart()
+    })
 
+    cardFormButton.parentNode.addEventListener("mouseleave", function () {
+        cardFormButton.dataset.onmouse = "false"
+        cardFormButtonHoverEnd()
+    })
+}
+
+function cardFormButtonHoverStart() {
+    cardForm.style.maxWidth = cardForm.getBoundingClientRect().width + "px"
     cardFormInput.style.borderTopRightRadius = "0"
     cardFormInput.style.borderBottomRightRadius = "0"
+}
 
-    let cardForm = document.getElementById("cardForm")
-    cardForm.style.maxWidth = cardForm.getBoundingClientRect().width + "px"
+function cardFormButtonHoverEnd() {
+    cardFormInput.style.borderTopRightRadius = borderRadius
+    cardFormInput.style.borderBottomRightRadius = borderRadius
 }
 
 // noinspection JSUnusedGlobalSymbols
-function cardFormButtonHoverEnd() {
-    let cardFormInput = document.getElementById("cardFormInput")
+function cardFormInputChange() {
+    let length = cardFormInput.value.length;
 
-    cardFormInput.style.borderTopRightRadius = borderRadius
-    cardFormInput.style.borderBottomRightRadius = borderRadius
+    if (length === 0 || length >= 12) {
+        cardFormButton.disabled = true
+        cardFormButtonHoverEnd()
+    } else {
+        cardFormButton.disabled = false
+        if (cardFormButton.dataset.onmouse === "true") cardFormButtonHoverStart()
+    }
 }
