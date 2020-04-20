@@ -41,8 +41,9 @@ class IndexPage : GenericPage() {
                         h3 { text("Status of DataBase") }
                         p("apply-green") { text("Status: Connected") }
                         p { text("Collection size: $sizeOfEntities") }
-                        br("apply-margin-8px")
-                        a("/entity", classes = "form-button") { text("View collections") }
+                        a("/entity", classes = "form-button apply-margin-top-8px") {
+                            text("View collections")
+                        }
                     }
                 }
             }

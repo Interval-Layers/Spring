@@ -26,7 +26,7 @@ class ErrorPage : GenericPage() {
                 h3 {
                     text("Method: " + request.method)
                 }
-                a(href = "/", classes = "button-container") { text("Return to the main page ->>") }
+                a(href = "/", classes = "form-button apply-margin-top-8px") { text("Return to the main page") }
             }
         }
     }

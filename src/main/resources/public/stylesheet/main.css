@@ -264,7 +264,14 @@ td:last-child:hover {
 }
 
 .apply-margin-8px {
-    display: block;
-    margin: 4px 0;
-    content: "";
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.apply-margin-top-8px {
+    margin-top: 8px;
+}
+
+.apply-margin-bottom-8px {
+    margin-bottom: 8px;
 }
