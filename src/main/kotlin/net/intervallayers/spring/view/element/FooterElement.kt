@@ -16,6 +16,6 @@ fun BODY.footerElement(onLoad: String = "", tags: (FOOTER.() -> Unit) = {}) {
         tags()
 
         script(src = "/javascript/main.js")
-        onLoad.ifNotBlank { script { unsafe { raw("window.onload = $onLoad") } } }
+        onLoad.ifNotBlank { script("text/javascript") { unsafe { raw("window.onload = $onLoad") } } }
     }
 }
