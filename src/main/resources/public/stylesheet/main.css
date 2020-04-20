@@ -122,6 +122,11 @@ article.card > h3 {
     margin-bottom: 8px;
 }
 
+pre {
+    font-size: medium;
+    font-weight: normal;
+}
+
 /*
  * Container zone
  */
