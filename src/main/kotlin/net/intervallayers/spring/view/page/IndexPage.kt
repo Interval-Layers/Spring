@@ -42,7 +42,10 @@ class IndexPage : GenericPage() {
 
                     article(classes = "card") {
                         h3 { text("Status of DataBase") }
-                        p("apply-green") { text("Status: Connected") }
+                        p {
+                            text("Status: ")
+                            span("apply-green") { text("Connected") }
+                        }
                         p { text("Collection size: $sizeOfEntities") }
                         a("/entity", classes = "form-button apply-margin-top-8px") {
                             text("View collections")
