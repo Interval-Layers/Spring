@@ -173,7 +173,6 @@ pre {
     transition: var(--transition);
     border-radius: var(--border-radius);
     padding: 8px;
-    width: 100%;
     background-color: var(--color-gray-light-5);
 }
 
@@ -191,8 +190,7 @@ pre {
     padding: 8px 0;
     background: transparent;
     font-size: smaller;
-    font-weight: bold;
-    cursor: pointer;
+    width: fit-content;
     display: inline-flex;
 }
 
@@ -254,6 +252,10 @@ td:last-child:hover {
 
 .apply-hidden {
     display: none;
+}
+
+.apply-width-100 {
+    width: 100%;
 }
 
 .apply-green {
