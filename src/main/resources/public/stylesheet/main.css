@@ -177,6 +177,14 @@ pre {
     background-color: var(--color-gray-light-5);
 }
 
+.form-input::placeholder {
+    transition: var(--transition);
+}
+
+.form-input:hover::placeholder {
+    text-indent: 8px;
+}
+
 .form-button {
     transition: var(--transition);
     border-radius: var(--border-radius);
