@@ -63,7 +63,7 @@
     --height-main: calc(100vh - (var(--height-header) + var(--height-footer)));
 
     --border-radius: 7px;
-    --transition: ease-out .3s;
+    --transition: all 0.3s ease-out 0s;
 }
 
 :focus {
