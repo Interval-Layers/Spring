@@ -39,3 +39,13 @@ function cardFormInputChange() {
         if (cardFormButton.dataset.onmouse === "true") cardFormButtonHoverStart()
     }
 }
+
+// noinspection JSUnusedGlobalSymbols
+function toggleWindowLogin() {
+    WindowHandler.object.toggleWindow(document.getElementById("windowLogin"))
+}
+
+// noinspection JSUnusedGlobalSymbols
+function toggleWindowRegistration() {
+    WindowHandler.object.toggleWindow(document.getElementById("windowRegistration"))
+}
