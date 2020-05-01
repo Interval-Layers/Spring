@@ -25,7 +25,7 @@ fun BODY.headerElement() {
 
         section("window-background") {
             id = "windowBackground"
-            onClick = "windowHandler.toggleWindow(windowHandler.currentWindow)"
+            onClick = "WindowHandler.object.toggleWindow(WindowHandler.object.currentWindow)"
         }
 
         article("window-card") {
