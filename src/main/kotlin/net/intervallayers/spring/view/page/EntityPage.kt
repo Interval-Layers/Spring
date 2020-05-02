@@ -13,18 +13,23 @@ class EntityPage : GenericPage() {
         main {
             section(classes = "main-container") {
                 h1(classes = "title") { text("Viewer of entities") }
-                a(href = "/", classes = "form-button apply-margin-bottom-8px") { text("Return to the main page") }
-                table {
-                    tr {
-                        td { text("ID") }
-                        td { text("TIME") }
-                        td { text("NAME") }
+
+                article("card") {
+                    a(href = "/", classes = "form-button apply-margin-bottom-16px") {
+                        text("Return to the main page")
                     }
-                    entities.forEach {
+                    table {
                         tr {
-                            td { text(it.id) }
-                            td { text(it.time) }
-                            td { text(it.name) }
+                            td { text("ID") }
+                            td { text("TIME") }
+                            td { text("NAME") }
+                        }
+                        entities.forEach {
+                            tr {
+                                td { text(it.id) }
+                                td { text(it.time) }
+                                td { button(classes = "apply-underline") { text(it.name) } }
+                            }
                         }
                     }
                 }
