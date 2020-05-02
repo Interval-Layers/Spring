@@ -305,10 +305,6 @@ td:last-child {
     display: flex;
 }
 
-.apply-hidden {
-    display: none;
-}
-
 .apply-width-100 {
     width: 100%;
 }
