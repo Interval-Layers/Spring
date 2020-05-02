@@ -164,13 +164,17 @@ pre {
     display: flex;
 }
 
+.card-container > .card {
+    margin: 0 5px;
+}
+
 .card, .window-card {
     padding: 16px;
     background: var(--color-gray-dark-4);
     border-radius: var(--border-radius);
     width: fit-content;
     height: fit-content;
-    margin: 0 5px;
+    margin: 0 auto;
 }
 
 .form-input {
@@ -310,6 +314,11 @@ td:last-child {
 .apply-green {
     color: var(--color-green);
     text-shadow: 0 0 24px var(--color-green);
+}
+
+.apply-red {
+    color: var(--color-red);
+    text-shadow: 0 0 24px var(--color-red);
 }
 
 .apply-margin-8px {
