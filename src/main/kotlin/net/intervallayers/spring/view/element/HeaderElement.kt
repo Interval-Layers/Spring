@@ -10,12 +10,12 @@ fun BODY.headerElement() {
             }
             div(classes = "login") {
                 p {
-                    button {
+                    button(classes = "apply-underline") {
                         onClick = "toggleWindowLogin()"
                         text("Login")
                     }
                     text(" | ")
-                    button {
+                    button(classes = "apply-underline") {
                         onClick = "toggleWindowRegistration()"
                         text("Registration")
                     }

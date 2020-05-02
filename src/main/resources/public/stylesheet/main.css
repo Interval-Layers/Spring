@@ -314,3 +314,19 @@ td:last-child:hover {
 .apply-margin-bottom-8px {
     margin-bottom: 8px;
 }
+
+.apply-underline:after {
+    transition: var(--transition);
+    content: "";
+    width: 0;
+    height: 1px;
+    display: block;
+    background: var(--color-gray-light-5);
+    opacity: 0;
+    margin: 0 auto;
+}
+
+.apply-underline:hover:after {
+    width: 100%;
+    opacity: 100%;
+}
