@@ -12,7 +12,7 @@ class EntityPage : GenericPage() {
     override fun BODY.main() {
         main {
             section(classes = "main-container") {
-                h1(classes = "title") { text("Viewer of entities") }
+                h1 { text("Viewer of entities") }
 
                 article("card") {
                     table {

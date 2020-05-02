@@ -17,7 +17,7 @@ class IndexPage : GenericPage() {
     override fun BODY.main() {
         main {
             section(classes = "main-container") {
-                h1("title") { text(Application::class.java.packageName.toUpperCase()) }
+                h1 { text(Application::class.java.packageName.toUpperCase()) }
 
                 div("card-container") {
                     article(classes = "card") {

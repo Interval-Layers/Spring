@@ -108,6 +108,11 @@ a {
     color: var(--color-gray-light-5);
 }
 
+h1 {
+    text-align: center;
+    padding: 0 0 40px;
+}
+
 button {
     background-color: transparent;
     color: var(--color-gray-light-5);
@@ -164,11 +169,6 @@ pre {
     width: fit-content;
     margin: 0 auto 0;
     padding: calc(var(--height-header-and-footer) / 2) 0;
-}
-
-.title {
-    text-align: center;
-    padding: 0 0 40px;
 }
 
 .card-container {

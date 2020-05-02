@@ -15,7 +15,7 @@ class InsertPage : GenericPage() {
     override fun BODY.main() {
         main {
             section(classes = "main-container") {
-                h1("title") { text("Inserted \"${Entity::class.java.simpleName}\": ") }
+                h1 { text("Inserted \"${Entity::class.java.simpleName}\": ") }
                 h2 { pre { text(entity) } }
                 a(href = "/", classes = "form-button") { text("Return to the main page") }
             }

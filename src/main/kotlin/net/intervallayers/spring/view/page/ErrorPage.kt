@@ -20,7 +20,7 @@ class ErrorPage : GenericPage() {
     override fun BODY.main() {
         main {
             section(classes = "main-container") {
-                h1("title") { text("An error has occurred") }
+                h1 { text("An error has occurred") }
 
                 article("card") {
                     h3 { text("Information") }
