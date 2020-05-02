@@ -1,6 +1,7 @@
 package net.intervallayers.spring.view.page
 
 import kotlinx.html.*
+import net.intervallayers.extensions.html.*
 import net.intervallayers.spring.*
 import net.intervallayers.spring.view.element.*
 import org.springframework.stereotype.*
@@ -44,9 +45,9 @@ class IndexPage : GenericPage() {
                         h3 { text("Status of DataBase") }
                         p {
                             text("Status: ")
-                            span("apply-green") { text("Connected") }
+                            textln("Connected", "apply-green")
+                            text("Collection size: $sizeOfEntities")
                         }
-                        p { text("Collection size: $sizeOfEntities") }
                         a("/entity", classes = "form-button") {
                             text("View collections")
                         }

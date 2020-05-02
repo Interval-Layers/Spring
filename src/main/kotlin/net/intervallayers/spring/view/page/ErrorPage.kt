@@ -1,6 +1,7 @@
 package net.intervallayers.spring.view.page
 
 import kotlinx.html.*
+import net.intervallayers.extensions.html.*
 import org.springframework.http.*
 import org.springframework.stereotype.*
 import javax.servlet.http.*
@@ -23,13 +24,13 @@ class ErrorPage : GenericPage() {
 
                 article("card") {
                     h3 { text("Information") }
-                    p { text("Code: " + status.value()) }
-                    p { text("Message: " + status.reasonPhrase) }
                     p {
+                        textln("Code: " + status.value())
+                        textln("Message: " + status.reasonPhrase)
                         text("Status: ")
-                        span("apply-red") { text("Error") }
+                        textln("Error", "apply-red")
+                        text("Method: " + request.method)
                     }
-                    p { text("Method: " + request.method) }
                     a(href = "/", classes = "form-button") {
                         text("Return to the main page")
                     }
