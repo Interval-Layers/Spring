@@ -80,8 +80,6 @@ class WindowHandler {
             case 1:
                 style.opacity = "0"
 
-                // this.footer.addEventListener("transitionstart", this.setBlockedOnTransitionStart())
-
                 this.footer.addEventListener("transitionend", function handler() {
                     style.position = "fixed"
                     style.opacity = "1"
