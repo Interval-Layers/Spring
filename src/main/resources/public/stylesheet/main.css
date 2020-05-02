@@ -184,7 +184,7 @@ pre {
     transition: var(--transition);
 }
 
-.form-input:hover::placeholder {
+.form-input:hover:not(:focus)::placeholder {
     text-indent: 8px;
 }
 
