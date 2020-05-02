@@ -24,7 +24,7 @@ class IndexPage : GenericPage() {
                         h3 { text("Add new Entity") }
                         form("/insert", classes = "apply-flex") {
                             id = "cardForm"
-                            input(classes = "form-input apply-width-100", name = "name") {
+                            input(classes = "apply-width-100", name = "name") {
                                 id = "cardFormInput"
                                 maxLength = "12"
                                 onInput = "cardFormInputChange()"

@@ -117,6 +117,21 @@ button {
     cursor: pointer;
 }
 
+input {
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+    padding: 8px;
+    background-color: var(--color-gray-light-5);
+}
+
+input::placeholder {
+    transition: var(--transition);
+}
+
+input:hover:not(:focus)::placeholder {
+    text-indent: 8px;
+}
+
 pre {
     font-size: medium;
     font-weight: normal;
@@ -179,20 +194,9 @@ pre {
     margin-bottom: 8px;
 }
 
-.form-input {
-    transition: var(--transition);
-    border-radius: var(--border-radius);
-    padding: 8px;
-    background-color: var(--color-gray-light-5);
-}
-
-.form-input::placeholder {
-    transition: var(--transition);
-}
-
-.form-input:hover:not(:focus)::placeholder {
-    text-indent: 8px;
-}
+/*
+ * Button zone
+ */
 
 .form-button {
     transition: var(--transition);
@@ -215,12 +219,12 @@ pre {
     cursor: default;
 }
 
-.form-input + div > .form-button {
+input + div > .form-button {
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
     padding: 8px 10px;
 }
 
-.form-input + div > .form-button:not([disabled]):hover {
+input + div > .form-button:not([disabled]):hover {
     padding: 8px 20px;
 }
 

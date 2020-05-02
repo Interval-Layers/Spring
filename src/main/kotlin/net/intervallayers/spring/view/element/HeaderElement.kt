@@ -32,10 +32,10 @@ fun BODY.headerElement() {
             id = "windowLogin"
             h3 { text("Login") }
             form(classes = "window-form") {
-                input(classes = "form-input") {
+                input {
                     placeholder = "Enter login"
                 }
-                input(classes = "form-input", type = InputType.password) {
+                input(type = InputType.password) {
                     placeholder = "Enter password"
                 }
                 button(classes = "form-button") { text("Sign-in") }
@@ -47,16 +47,16 @@ fun BODY.headerElement() {
             id = "windowRegistration"
             h3 { text("Registration") }
             form(classes = "window-form") {
-                input(classes = "form-input") {
+                input {
                     placeholder = "Enter login"
                 }
-                input(classes = "form-input") {
+                input {
                     placeholder = "Enter email"
                 }
-                input(classes = "form-input", type = InputType.password) {
+                input(type = InputType.password) {
                     placeholder = "Enter password"
                 }
-                input(classes = "form-input", type = InputType.password) {
+                input(type = InputType.password) {
                     placeholder = "Retype password"
                 }
                 button(classes = "form-button") { text("Sign-up") }
