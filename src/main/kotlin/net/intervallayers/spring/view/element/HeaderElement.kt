@@ -32,13 +32,13 @@ fun BODY.headerElement() {
             id = "windowLogin"
             h3 { text("Login") }
             form(classes = "window-form") {
-                input(classes = "form-input apply-margin-bottom-8px") {
+                input(classes = "form-input") {
                     placeholder = "Enter login"
                 }
-                input(classes = "form-input apply-margin-bottom-8px", type = InputType.password) {
+                input(classes = "form-input", type = InputType.password) {
                     placeholder = "Enter password"
                 }
-                button(classes = "form-button apply-margin-bottom-8px") { text("Sign-in") }
+                button(classes = "form-button") { text("Sign-in") }
                 button(classes = "form-button") { text("Sign-in as Guest") }
             }
         }
@@ -47,16 +47,16 @@ fun BODY.headerElement() {
             id = "windowRegistration"
             h3 { text("Registration") }
             form(classes = "window-form") {
-                input(classes = "form-input apply-margin-bottom-8px") {
+                input(classes = "form-input") {
                     placeholder = "Enter login"
                 }
-                input(classes = "form-input apply-margin-bottom-8px") {
+                input(classes = "form-input") {
                     placeholder = "Enter email"
                 }
-                input(classes = "form-input apply-margin-bottom-8px", type = InputType.password) {
+                input(classes = "form-input", type = InputType.password) {
                     placeholder = "Enter password"
                 }
-                input(classes = "form-input apply-margin-bottom-8px", type = InputType.password) {
+                input(classes = "form-input", type = InputType.password) {
                     placeholder = "Retype password"
                 }
                 button(classes = "form-button") { text("Sign-up") }

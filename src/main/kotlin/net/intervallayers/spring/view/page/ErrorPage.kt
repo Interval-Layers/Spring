@@ -30,7 +30,7 @@ class ErrorPage : GenericPage() {
                         span("apply-red") { text("Error") }
                     }
                     p { text("Method: " + request.method) }
-                    a(href = "/", classes = "form-button apply-margin-top-8px") {
+                    a(href = "/", classes = "form-button") {
                         text("Return to the main page")
                     }
                 }
@@ -38,4 +38,3 @@ class ErrorPage : GenericPage() {
         }
     }
 }
-

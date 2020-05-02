@@ -15,9 +15,6 @@ class EntityPage : GenericPage() {
                 h1(classes = "title") { text("Viewer of entities") }
 
                 article("card") {
-                    a(href = "/", classes = "form-button apply-margin-bottom-16px") {
-                        text("Return to the main page")
-                    }
                     table {
                         tr {
                             td { text("ID") }
@@ -31,6 +28,10 @@ class EntityPage : GenericPage() {
                                 td { button(classes = "apply-underline") { text(it.name) } }
                             }
                         }
+                    }
+
+                    a(href = "/", classes = "form-button") {
+                        text("Return to the main page")
                     }
                 }
             }

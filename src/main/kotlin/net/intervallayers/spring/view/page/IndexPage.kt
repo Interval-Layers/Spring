@@ -47,7 +47,7 @@ class IndexPage : GenericPage() {
                             span("apply-green") { text("Connected") }
                         }
                         p { text("Collection size: $sizeOfEntities") }
-                        a("/entity", classes = "form-button apply-margin-top-8px") {
+                        a("/entity", classes = "form-button") {
                             text("View collections")
                         }
                     }

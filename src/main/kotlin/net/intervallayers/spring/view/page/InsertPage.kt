@@ -17,7 +17,7 @@ class InsertPage : GenericPage() {
             section(classes = "main-container") {
                 h1("title") { text("Inserted \"${Entity::class.java.simpleName}\": ") }
                 h2 { pre { text(entity) } }
-                a(href = "/", classes = "form-button apply-margin-top-8px") { text("Return to the main page") }
+                a(href = "/", classes = "form-button") { text("Return to the main page") }
             }
         }
     }
