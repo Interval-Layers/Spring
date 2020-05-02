@@ -300,6 +300,7 @@ td:last-child:hover {
 
 .apply-green {
     color: var(--color-green);
+    text-shadow: 0 0 24px var(--color-green);
 }
 
 .apply-margin-8px {
