@@ -298,6 +298,16 @@ td:last-child {
     left: 0;
 }
 
+@-moz-document url-prefix() {
+    .window-card {
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+}
+
 .window-form {
     display: flex;
     flex-direction: column;
