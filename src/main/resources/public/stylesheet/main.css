@@ -166,6 +166,7 @@ pre {
 }
 
 .main-container {
+    width: -moz-fit-content;
     width: fit-content;
     margin: 0 auto 0;
     padding: calc(var(--height-header-and-footer) / 2) 0;
@@ -183,8 +184,9 @@ pre {
     padding: 16px;
     background: var(--color-gray-dark-4);
     border-radius: var(--border-radius);
+    width: -moz-fit-content;
     width: fit-content;
-    height: fit-content;
+    height: min-content;
     margin: 0 auto;
 }
 
