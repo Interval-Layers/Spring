@@ -158,6 +158,7 @@ pre {
     height: inherit;
     width: inherit;
     background: rgba(var(--color-rgb-gray-dark-4), 0.3);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
     display: flex;
     justify-content: space-around;
@@ -278,6 +279,7 @@ td:last-child {
     min-height: var(--height-main);
     min-width: 100vw;
     margin: var(--height-header-and-footer) 0;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
     background: rgba(var(--color-rgb-gray-dark-4), 0.3);
     transition: var(--transition);
