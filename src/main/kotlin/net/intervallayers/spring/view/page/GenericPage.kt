@@ -44,7 +44,6 @@ abstract class GenericPage : AbstractPage() {
         .addTitle(this@GenericPage.title)
         .setCharset()
         .addMainStylesheet()
-        .addAnotherStylesheet("https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css")
         .toUnit()
 
     /**
