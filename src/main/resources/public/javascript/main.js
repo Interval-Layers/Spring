@@ -1,7 +1,7 @@
 const borderRadius = getComputedStyle(document.documentElement).getPropertyValue("--border-radius");
-const cardFormInput = document.getElementById("cardFormInput");
-const cardFormButton = document.getElementById("cardFormButton");
-const cardForm = document.getElementById("cardForm");
+const cardFormInput = document.getElementById("insertEntityInput");
+const cardFormButton = document.getElementById("insertEntityButton");
+const cardForm = document.getElementById("insertEntity");
 
 // noinspection JSUnusedGlobalSymbols
 function insertEntitySubmitEvent() {
@@ -46,7 +46,7 @@ function initFormButtonEvents() {
 }
 
 function cardFormButtonHoverStart() {
-    cardForm.style.maxWidth = cardForm.getBoundingClientRect().width + "px"
+    cardForm.style.width = cardForm.getBoundingClientRect().width + "px"
     cardFormInput.style.borderTopRightRadius = "0"
     cardFormInput.style.borderBottomRightRadius = "0"
 }
@@ -57,7 +57,7 @@ function cardFormButtonHoverEnd() {
 }
 
 // noinspection JSUnusedGlobalSymbols
-function cardFormInputChange() {
+function insertEntityInputChange() {
     let length = cardFormInput.value.length;
 
     if (length === 0 || length >= 12) {

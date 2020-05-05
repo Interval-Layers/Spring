@@ -23,17 +23,17 @@ class IndexPage : GenericPage() {
                     article(classes = "card") {
                         h3 { text("Add new Entity") }
                         form(method = FormMethod.post, classes = "apply-flex") {
-                            id = "cardForm"
+                            id = "insertEntity"
                             onSubmit = "return insertEntitySubmitEvent()"
                             input(classes = "apply-width-100", name = "name") {
-                                id = "cardFormInput"
+                                id = "insertEntityInput"
                                 maxLength = "12"
-                                onInput = "cardFormInputChange()"
+                                onInput = "insertEntityInputChange()"
                                 placeholder = "Enter name"
                             }
                             div {
                                 button(classes = "form-button") {
-                                    id = "cardFormButton"
+                                    id = "insertEntityButton"
                                     disabled = true
                                     attributes["data-onmouse"] = "false"
                                     text("Add Entity")
