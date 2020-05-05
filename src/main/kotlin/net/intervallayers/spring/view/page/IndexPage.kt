@@ -22,7 +22,7 @@ class IndexPage : GenericPage() {
                 div("card-container") {
                     article(classes = "card") {
                         h3 { text("Add new Entity") }
-                        form(classes = "apply-flex") {
+                        form(method = FormMethod.post, classes = "apply-flex") {
                             id = "cardForm"
                             input(classes = "apply-width-100", name = "name") {
                                 id = "cardFormInput"
