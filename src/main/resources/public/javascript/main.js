@@ -4,6 +4,35 @@ const cardFormButton = document.getElementById("cardFormButton");
 const cardForm = document.getElementById("cardForm");
 
 // noinspection JSUnusedGlobalSymbols
+function insertEntitySubmitEvent() {
+    function insertEntityHandler(request) {
+        function setValue(id, value, CSSClass, withoutQuotes) {
+            const element = document.getElementById(id);
+
+            if (withoutQuotes === true)
+                element.innerText = value
+            else
+                element.innerText = "\"" + value + "\""
+            element.className = CSSClass
+        }
+
+        if (request.readyState === 4 && request.status === 200) {
+            const status = request.response.status.capitalize()
+            const entity = request.response.entity
+            WindowHandler.object.toggleWindow(document.getElementById("windowInsertEntity"))
+
+            setValue("windowInsertEntityStatus", status, "apply-green", true)
+            setValue("windowInsertEntityId", entity.id, "apply-orange")
+            setValue("windowInsertEntityTime", entity.time, "apply-orange")
+            setValue("windowInsertEntityName", entity.name, "apply-orange")
+        }
+    }
+
+    new AjaxPostHandler(cardFormInput.value, "/api/insert/entity", insertEntityHandler)
+    return false;
+}
+
+// noinspection JSUnusedGlobalSymbols
 function initFormButtonEvents() {
     cardFormButton.parentNode.addEventListener("mouseenter", function () {
         cardFormButton.dataset.onmouse = "true"

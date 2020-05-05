@@ -24,6 +24,7 @@ class IndexPage : GenericPage() {
                         h3 { text("Add new Entity") }
                         form(method = FormMethod.post, classes = "apply-flex") {
                             id = "cardForm"
+                            onSubmit = "return insertEntitySubmitEvent()"
                             input(classes = "apply-width-100", name = "name") {
                                 id = "cardFormInput"
                                 maxLength = "12"
