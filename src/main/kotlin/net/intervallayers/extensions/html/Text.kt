@@ -11,3 +11,11 @@ fun Tag.text(s: Any?) {
 fun FlowOrPhrasingContent.text(s: Any?, classes: String = "") {
     span(classes) { (this as Tag).text(s) }
 }
+
+@HtmlTagMarker
+fun FlowOrPhrasingContent.text(s: Any?, classes: String = "", id: String = "") {
+    span(classes) {
+        this.id = id
+        (this as Tag).text(s)
+    }
+}
