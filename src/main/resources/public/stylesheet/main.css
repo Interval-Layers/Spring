@@ -137,11 +137,6 @@ input:hover:not(:focus)::placeholder {
     text-indent: 8px;
 }
 
-pre {
-    font-size: medium;
-    font-weight: normal;
-}
-
 /*
  * Container zone
  */
