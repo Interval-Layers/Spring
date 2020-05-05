@@ -4,40 +4,38 @@ class WindowHandler {
 
     constructor() {
         this.currentWindow = "";
-        this.blocked = false;
+        this.open = false
 
         this.header = document.getElementsByClassName("header-container")[0]
         this.footer = document.getElementsByClassName("footer-container")[0]
         this.windowBackground = document.getElementById("windowBackground")
         this.windowBackgroundDimming = document.getElementById("windowBackgroundDimming")
-
-        this.footer.addEventListener("transitionstart", this.setBlockedOnTransitionStart)
-        this.footer.addEventListener("transitionend", this.unsetBlockedOnTransitionStart)
     }
 
     toggleWindow(HTMLElement) {
-        if (!this.blocked)
-            switch (this.currentWindow) {
-                case "":
-                    this.setWindowBackground()
-                    this.setWindow(HTMLElement)
-                    this.fixedFooter()
-                    if (!this.isPageFullyVisible()) {
-                        this.enableDimmingElements()
-                    }
-                    break
-                case HTMLElement:
-                    this.unsetWindowBackground()
-                    this.unsetWindow()
-                    this.unfixedFooter()
-                    if (!this.isPageFullyVisible()) {
-                        this.disableDimmingElements()
-                    }
-                    break
-                default:
-                    this.unsetWindow()
-                    this.setWindow(HTMLElement)
-            }
+        switch (this.currentWindow) {
+            case "":
+                this.open = true
+                this.setWindowBackground()
+                this.setWindow(HTMLElement)
+                this.fixedFooter()
+                if (!this.isPageFullyVisible()) {
+                    this.enableDimmingElements()
+                }
+                break
+            case HTMLElement:
+                this.open = false
+                this.unsetWindowBackground()
+                this.unsetWindow()
+                this.unfixedFooter()
+                if (!this.isPageFullyVisible()) {
+                    this.disableDimmingElements()
+                }
+                break
+            default:
+                this.unsetWindow()
+                this.setWindow(HTMLElement)
+        }
     }
 
     setWindowBackground() {
@@ -72,12 +70,15 @@ class WindowHandler {
 
     fixedFooter() {
         const style = this.footer.style
+        const computedPosition = window.getComputedStyle(this.footer).position
 
         switch (this.getPositionFooter()) {
             case 2:
-                style.position = "fixed"
+                if (computedPosition === "fixed")
+                    style.opacity = "1"
+                else
+                    style.position = "fixed"
                 break
-
             case 1:
                 style.opacity = "0"
 
@@ -91,9 +92,11 @@ class WindowHandler {
                 })
                 break
             case 0:
-                style.transition = "all 0s ease-out 0s"
-                style.opacity = "0"
-                style.position = "fixed"
+                if (computedPosition !== "fixed") {
+                    style.transition = "all 0s ease-out 0s"
+                    style.opacity = "0"
+                    style.position = "fixed"
+                }
 
                 setTimeout(function () {
                     style.transition = ""
@@ -114,7 +117,9 @@ class WindowHandler {
                 style.opacity = "0"
 
                 this.footer.addEventListener("transitionend", function handler() {
-                    style.position = "static"
+                    if (!WindowHandler.object.open) {
+                        style.position = "static"
+                    }
                     style.opacity = "1"
 
                     document
@@ -165,13 +170,5 @@ class WindowHandler {
         this.footer.style.background = ""
         this.windowBackgroundDimming.style.opacity = ""
         this.windowBackgroundDimming.style.visibility = ""
-    }
-
-    setBlockedOnTransitionStart() {
-        WindowHandler.object.blocked = true
-    }
-
-    unsetBlockedOnTransitionStart() {
-        WindowHandler.object.blocked = false
     }
 }
