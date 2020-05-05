@@ -232,23 +232,25 @@ table {
     border-collapse: collapse;
 }
 
-tr:first-child > td:first-child {
+tr > td:first-child {
     border-top-left-radius: var(--border-radius);
-}
-
-tr:first-child > td:last-child {
-    border-top-right-radius: var(--border-radius);
-}
-
-tr:last-child > td:first-child {
     border-bottom-left-radius: var(--border-radius);
 }
 
-tr:last-child > td:last-child {
+tr > td:last-child {
+    border-top-right-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
 }
 
-tr:nth-child(2n+1) > td {
+td {
+    transition: var(--transition);
+}
+
+tr:first-child > td {
+    background-color: var(--color-gray-dark-2);
+}
+
+tr:nth-child(2n + 1):not(:first-child) > td {
     background-color: var(--color-gray-dark-3);
 }
 
