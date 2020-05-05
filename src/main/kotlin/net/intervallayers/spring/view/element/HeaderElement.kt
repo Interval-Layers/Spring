@@ -66,9 +66,22 @@ fun BODY.headerElement() {
 
         article("window-card") {
             id = "windowInsertEntity"
-            h3 { text("Inserted entity information") }
+            h3 { text("Insert information") }
             p {
-                textln("Status", "")
+                text("Status: ", "")
+                text("", "", "windowInsertEntityStatus")
+            }
+            pre {
+                code {
+                    textln("entity: {")
+                    text("  _id: ")
+                    textln("", "", "windowInsertEntityId")
+                    text("  time: ")
+                    textln("", "", "windowInsertEntityTime")
+                    text("  name: ")
+                    textln("", "", "windowInsertEntityName")
+                    textln("}")
+                }
             }
         }
     }
