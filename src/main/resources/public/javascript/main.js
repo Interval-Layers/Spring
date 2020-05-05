@@ -53,7 +53,7 @@ function insertEntityButtonEvents() {
 function insertEntityInputChange() {
     let length = insertEntityInput.value.length;
 
-    insertEntityButton.disabled = length === 0 || length >= 12;
+    insertEntityButton.disabled = length === 0 || length > insertEntityInput.maxLength;
 }
 
 // noinspection JSUnusedGlobalSymbols
