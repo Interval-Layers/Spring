@@ -337,6 +337,11 @@ td:last-child {
     text-shadow: 0 0 24px var(--color-red);
 }
 
+.apply-orange {
+    color: var(--color-orange);
+    text-shadow: 0 0 24px var(--color-orange);
+}
+
 .apply-underline:after {
     transition: var(--transition);
     content: "";
