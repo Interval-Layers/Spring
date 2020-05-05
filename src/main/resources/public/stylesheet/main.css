@@ -131,10 +131,16 @@ input {
 
 input::placeholder {
     transition: var(--transition);
+    opacity: 1;
 }
 
 input:hover:not(:focus)::placeholder {
     text-indent: 8px;
+}
+
+input:focus::placeholder {
+    opacity: 0;
+    text-indent: 16px;
 }
 
 /*
