@@ -1,6 +1,7 @@
 package net.intervallayers.spring.view.element
 
 import kotlinx.html.*
+import net.intervallayers.extensions.html.*
 
 fun BODY.headerElement() {
     header {
@@ -39,8 +40,8 @@ fun BODY.headerElement() {
                     placeholder = "Enter password"
                 }
                 button(classes = "form-button") { text("Sign-in") }
-                button(classes = "form-button") { text("Sign-in as Guest") }
             }
+            button(classes = "form-button") { text("Sign-in as Guest") }
         }
 
         article("window-card") {
@@ -60,6 +61,14 @@ fun BODY.headerElement() {
                     placeholder = "Retype password"
                 }
                 button(classes = "form-button") { text("Sign-up") }
+            }
+        }
+
+        article("window-card") {
+            id = "windowInsertEntity"
+            h3 { text("Inserted entity information") }
+            p {
+                textln("Status", "")
             }
         }
     }
