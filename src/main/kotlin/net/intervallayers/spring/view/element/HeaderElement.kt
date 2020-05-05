@@ -44,7 +44,10 @@ fun BODY.headerElement() {
                 input(type = InputType.password) {
                     placeholder = "Enter password"
                 }
-                button(classes = "form-button") { text("Sign-in") }
+                button(classes = "form-button") {
+                    disabled = true
+                    text("Sign-in")
+                }
             }
             button(classes = "form-button") { text("Sign-in as Guest") }
         }
@@ -65,7 +68,10 @@ fun BODY.headerElement() {
                 input(type = InputType.password) {
                     placeholder = "Retype password"
                 }
-                button(classes = "form-button") { text("Sign-up") }
+                button(classes = "form-button") {
+                    disabled = true
+                    text("Sign-up")
+                }
             }
         }
 
