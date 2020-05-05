@@ -29,6 +29,11 @@ fun BODY.headerElement() {
             onClick = "WindowHandler.object.toggleWindow(WindowHandler.object.currentWindow)"
         }
 
+        section("window-background-dimming") {
+            id = "windowBackgroundDimming"
+            onClick = "WindowHandler.object.toggleWindow(WindowHandler.object.currentWindow)"
+        }
+
         article("window-card") {
             id = "windowLogin"
             h3 { text("Login") }

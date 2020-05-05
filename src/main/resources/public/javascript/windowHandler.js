@@ -9,6 +9,7 @@ class WindowHandler {
         this.header = document.getElementsByClassName("header-container")[0]
         this.footer = document.getElementsByClassName("footer-container")[0]
         this.windowBackground = document.getElementById("windowBackground")
+        this.windowBackgroundDimming = document.getElementById("windowBackgroundDimming")
 
         this.footer.addEventListener("transitionstart", this.setBlockedOnTransitionStart)
         this.footer.addEventListener("transitionend", this.unsetBlockedOnTransitionStart)
@@ -155,19 +156,15 @@ class WindowHandler {
     enableDimmingElements() {
         this.header.style.background = "#212124"
         this.footer.style.background = "#212124"
-        this.windowBackground.style.background = `linear-gradient(
-            0deg,
-            rgba(33, 33, 36, 1) 1%,
-            rgba(44, 44, 46, 0.3) 20%,
-            rgba(44, 44, 46, 0.3) 80%,
-            rgba(33, 33, 36, 1) 99%
-        )`
+        this.windowBackgroundDimming.style.opacity = "1"
+        this.windowBackgroundDimming.style.visibility = "visible"
     }
 
     disableDimmingElements() {
         this.header.style.background = ""
         this.footer.style.background = ""
-        this.windowBackground.style.background = ""
+        this.windowBackgroundDimming.style.opacity = ""
+        this.windowBackgroundDimming.style.visibility = ""
     }
 
     setBlockedOnTransitionStart() {

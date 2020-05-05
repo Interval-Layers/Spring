@@ -259,20 +259,33 @@ td:last-child {
  * Window zone
  */
 
-.window-background {
+.window-background, .window-background-dimming {
     visibility: hidden;
     opacity: 0;
     position: fixed;
     min-height: var(--height-main);
     min-width: 100vw;
     margin: var(--height-header-and-footer) 0;
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    background: rgba(var(--color-rgb-gray-dark-4), 0.3);
     transition: var(--transition);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.window-background {
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background: rgba(var(--color-rgb-gray-dark-4), 0.3);
+}
+
+.window-background-dimming {
+    background: linear-gradient(
+            0deg,
+            rgba(33, 33, 36, 1) 1%,
+            rgba(44, 44, 46, 0.3) 20%,
+            rgba(44, 44, 46, 0.3) 80%,
+            rgba(33, 33, 36, 1) 99%
+    );
 }
 
 .window-card {
