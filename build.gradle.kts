@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "net.intervallayers"
-version = "0.0.92"
+version = "0.0.93"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 val developmentOnly: Configuration by configurations.creating
