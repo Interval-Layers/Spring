@@ -242,7 +242,7 @@ tr:last-child > td:last-child {
     border-bottom-right-radius: var(--border-radius);
 }
 
-tr:nth-child(2n+1) {
+tr:nth-child(2n+1) > td {
     background-color: var(--color-gray-dark-3);
 }
 
