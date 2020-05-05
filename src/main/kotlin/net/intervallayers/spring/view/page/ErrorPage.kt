@@ -20,7 +20,10 @@ class ErrorPage : GenericPage() {
     override fun BODY.main() {
         main {
             section(classes = "main-container") {
-                h1 { text("An error has occurred") }
+                when (status.isError) {
+                    true -> h1 { text("An error has occurred") }
+                    false -> h1 { text("Something happened") }
+                }
 
                 article("card") {
                     h3 { text("Information") }
@@ -28,7 +31,10 @@ class ErrorPage : GenericPage() {
                         textln("Code: " + status.value())
                         textln("Message: " + status.reasonPhrase)
                         text("Status: ")
-                        textln("Error", "apply-red")
+                        when (status.isError) {
+                            true -> textln("Error", "apply-red")
+                            false -> textln("Success", "apply-green")
+                        }
                         text("Method: " + request.method)
                     }
                     a(href = "/", classes = "form-button") {
