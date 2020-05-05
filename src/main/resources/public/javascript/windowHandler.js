@@ -168,7 +168,7 @@ class WindowHandler {
     disableDimmingElements() {
         this.header.style.background = ""
         this.footer.style.background = ""
-        this.windowBackgroundDimming.style.opacity = ""
-        this.windowBackgroundDimming.style.visibility = ""
+        this.windowBackgroundDimming.style.opacity = "0"
+        this.windowBackgroundDimming.style.visibility = "hidden"
     }
 }
