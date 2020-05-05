@@ -193,7 +193,7 @@ input:hover:not(:focus)::placeholder {
 }
 
 /*
- * Button zone
+ * From button zone
  */
 
 .form-button {
@@ -202,6 +202,7 @@ input:hover:not(:focus)::placeholder {
     padding: 8px 0;
     background: transparent;
     font-size: smaller;
+    width: -moz-fit-content;
     width: fit-content;
     display: inline-flex;
 }
@@ -215,15 +216,6 @@ input:hover:not(:focus)::placeholder {
 .form-button:disabled {
     color: rgba(var(--color-rgb-gray-light-5), 0.5);
     cursor: default;
-}
-
-input + div > .form-button {
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    padding: 8px 10px;
-}
-
-input + div > .form-button:not([disabled]):hover {
-    padding: 8px 20px;
 }
 
 /*
@@ -311,16 +303,35 @@ td:last-child {
 }
 
 /*
- * Flags
+ * Insert Entity zone
  */
 
-.apply-flex {
+#insertEntity {
     display: flex;
+    flex-direction: row-reverse;
 }
 
-.apply-width-100 {
-    width: 100%;
+#insertEntityButton {
+    padding: 8px;
 }
+
+#insertEntityButton:not([disabled]):hover {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 8px 16px;
+
+}
+
+#insertEntityButton:not([disabled]):hover + #insertEntityInput {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+#insertEntityInput {
+    min-width: 0;
+}
+
+/*
+ * Flags
+ */
 
 .apply-green {
     color: var(--color-green);

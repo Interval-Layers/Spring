@@ -1,7 +1,6 @@
-const borderRadius = getComputedStyle(document.documentElement).getPropertyValue("--border-radius");
-const cardFormInput = document.getElementById("insertEntityInput");
-const cardFormButton = document.getElementById("insertEntityButton");
-const cardForm = document.getElementById("insertEntity");
+const insertEntityInput = document.getElementById("insertEntityInput");
+const insertEntityButton = document.getElementById("insertEntityButton");
+const insertEntity = document.getElementById("insertEntity");
 
 // noinspection JSUnusedGlobalSymbols
 function insertEntitySubmitEvent() {
@@ -28,45 +27,33 @@ function insertEntitySubmitEvent() {
         }
     }
 
-    new AjaxPostHandler(cardFormInput.value, "/api/insert/entity", insertEntityHandler)
+    new AjaxPostHandler(insertEntityInput.value, "/api/insert/entity", insertEntityHandler)
     return false;
 }
 
 // noinspection JSUnusedGlobalSymbols
-function initFormButtonEvents() {
-    cardFormButton.parentNode.addEventListener("mouseenter", function () {
-        cardFormButton.dataset.onmouse = "true"
-        if (!cardFormButton.disabled) cardFormButtonHoverStart()
+function insertEntityButtonEvents() {
+    let onMouse = false
+
+    insertEntityButton.addEventListener("mouseenter", function () {
+        insertEntity.style.width = insertEntity.getBoundingClientRect().width.toPX()
+        onMouse = true
     })
 
-    cardFormButton.parentNode.addEventListener("mouseleave", function () {
-        cardFormButton.dataset.onmouse = "false"
-        cardFormButtonHoverEnd()
+    insertEntityButton.addEventListener("mouseleave", function () {
+        onMouse = false
     })
-}
 
-function cardFormButtonHoverStart() {
-    cardForm.style.width = cardForm.getBoundingClientRect().width + "px"
-    cardFormInput.style.borderTopRightRadius = "0"
-    cardFormInput.style.borderBottomRightRadius = "0"
-}
-
-function cardFormButtonHoverEnd() {
-    cardFormInput.style.borderTopRightRadius = borderRadius
-    cardFormInput.style.borderBottomRightRadius = borderRadius
+    insertEntityButton.addEventListener("transitionend", function () {
+        if (onMouse === false) insertEntity.style.width = ""
+    })
 }
 
 // noinspection JSUnusedGlobalSymbols
 function insertEntityInputChange() {
-    let length = cardFormInput.value.length;
+    let length = insertEntityInput.value.length;
 
-    if (length === 0 || length >= 12) {
-        cardFormButton.disabled = true
-        cardFormButtonHoverEnd()
-    } else {
-        cardFormButton.disabled = false
-        if (cardFormButton.dataset.onmouse === "true") cardFormButtonHoverStart()
-    }
+    insertEntityButton.disabled = length === 0 || length >= 12;
 }
 
 // noinspection JSUnusedGlobalSymbols

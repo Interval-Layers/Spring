@@ -22,22 +22,22 @@ class IndexPage : GenericPage() {
                 div("card-container") {
                     article(classes = "card") {
                         h3 { text("Add new Entity") }
-                        form(method = FormMethod.post, classes = "apply-flex") {
+
+                        form(method = FormMethod.post) {
                             id = "insertEntity"
                             onSubmit = "return insertEntitySubmitEvent()"
-                            input(classes = "apply-width-100", name = "name") {
+
+                            button(classes = "form-button") {
+                                id = "insertEntityButton"
+                                disabled = true
+                                text("Add Entity")
+                            }
+
+                            input(name = "name") {
                                 id = "insertEntityInput"
                                 maxLength = "12"
                                 onInput = "insertEntityInputChange()"
                                 placeholder = "Enter name"
-                            }
-                            div {
-                                button(classes = "form-button") {
-                                    id = "insertEntityButton"
-                                    disabled = true
-                                    attributes["data-onmouse"] = "false"
-                                    text("Add Entity")
-                                }
                             }
                         }
                     }
@@ -59,6 +59,6 @@ class IndexPage : GenericPage() {
     }
 
     override fun BODY.footer() {
-        footerElement("initFormButtonEvents()")
+        footerElement("insertEntityButtonEvents()")
     }
 }
