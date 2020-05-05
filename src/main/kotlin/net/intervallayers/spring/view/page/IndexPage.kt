@@ -38,6 +38,7 @@ class IndexPage : GenericPage() {
                                 maxLength = "12"
                                 onInput = "insertEntityInputChange()"
                                 placeholder = "Enter name"
+                                autoComplete = false
                             }
                         }
                     }
