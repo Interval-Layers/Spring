@@ -346,9 +346,34 @@ td:last-child {
  * Flags
  */
 
+.apply-blue {
+    color: var(--color-blue);
+    text-shadow: 0 0 24px var(--color-blue);
+}
+
 .apply-green {
     color: var(--color-green);
     text-shadow: 0 0 24px var(--color-green);
+}
+
+.apply-indigo {
+    color: var(--color-indigo);
+    text-shadow: 0 0 24px var(--color-indigo);
+}
+
+.apply-orange {
+    color: var(--color-orange);
+    text-shadow: 0 0 24px var(--color-orange);
+}
+
+.apply-pink {
+    color: var(--color-pink);
+    text-shadow: 0 0 24px var(--color-pink);
+}
+
+.apply-purple {
+    color: var(--color-purple);
+    text-shadow: 0 0 24px var(--color-purple);
 }
 
 .apply-red {
@@ -356,9 +381,14 @@ td:last-child {
     text-shadow: 0 0 24px var(--color-red);
 }
 
-.apply-orange {
-    color: var(--color-orange);
-    text-shadow: 0 0 24px var(--color-orange);
+.apply-teal {
+    color: var(--color-teal);
+    text-shadow: 0 0 24px var(--color-teal);
+}
+
+.apply-yellow {
+    color: var(--color-yellow);
+    text-shadow: 0 0 24px var(--color-yellow);
 }
 
 .apply-underline:after {
