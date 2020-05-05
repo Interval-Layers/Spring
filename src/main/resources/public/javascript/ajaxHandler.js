@@ -5,7 +5,7 @@ class AjaxPostHandler {
             f(this.request)
         })
         this.request.open("POST", url)
-        this.request.setRequestHeader( "Content-Type", "application/json" );
+        this.request.setRequestHeader("Content-Type", "application/json")
         this.request.responseType = "json"
         this.request.send(data)
     }

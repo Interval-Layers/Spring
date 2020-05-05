@@ -1,12 +1,12 @@
-const insertEntityInput = document.getElementById("insertEntityInput");
-const insertEntityButton = document.getElementById("insertEntityButton");
-const insertEntity = document.getElementById("insertEntity");
+const insertEntityInput = document.getElementById("insertEntityInput")
+const insertEntityButton = document.getElementById("insertEntityButton")
+const insertEntity = document.getElementById("insertEntity")
 
 // noinspection JSUnusedGlobalSymbols
 function insertEntitySubmitEvent() {
     function insertEntityHandler(request) {
         function setValue(id, value, CSSClass, withoutQuotes) {
-            const element = document.getElementById(id);
+            const element = document.getElementById(id)
 
             if (withoutQuotes === true)
                 element.innerText = value
@@ -28,7 +28,7 @@ function insertEntitySubmitEvent() {
     }
 
     new AjaxPostHandler(insertEntityInput.value, "/api/insert/entity", insertEntityHandler)
-    return false;
+    return false
 }
 
 // noinspection JSUnusedGlobalSymbols
@@ -51,9 +51,9 @@ function insertEntityButtonEvents() {
 
 // noinspection JSUnusedGlobalSymbols
 function insertEntityInputChange() {
-    let length = insertEntityInput.value.length;
+    let length = insertEntityInput.value.length
 
-    insertEntityButton.disabled = length === 0 || length > insertEntityInput.maxLength;
+    insertEntityButton.disabled = length === 0 || length > insertEntityInput.maxLength
 }
 
 // noinspection JSUnusedGlobalSymbols
@@ -66,8 +66,8 @@ function toggleWindowRegistration() {
     WindowHandler.object.toggleWindow(document.getElementById("windowRegistration"))
 }
 
-String.prototype.capitalize = function() {
-    return this.charAt(0).toUpperCase() + this.slice(1);
+String.prototype.capitalize = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1)
 }
 
 Number.prototype.toPX = function () {

@@ -3,7 +3,7 @@ class WindowHandler {
     static object = new WindowHandler()
 
     constructor() {
-        this.currentWindow = "";
+        this.currentWindow = ""
         this.open = false
 
         this.header = document.getElementsByClassName("header-container")[0]
@@ -53,7 +53,7 @@ class WindowHandler {
     }
 
     setWindow(HTMLElement) {
-        const style = HTMLElement.style;
+        const style = HTMLElement.style
         this.currentWindow = HTMLElement
 
         style.visibility = "visible"
@@ -125,13 +125,13 @@ class WindowHandler {
                     document
                         .getElementsByClassName("footer-container")[0]
                         .removeEventListener("transitionend", handler, false)
-                });
+                })
                 break
         }
     }
 
     getPositionFooter() {
-        const different = Math.max(0, (this.footer.getBoundingClientRect().top - window.innerHeight) * -1);
+        const different = Math.max(0, (this.footer.getBoundingClientRect().top - window.innerHeight) * -1)
 
         // 0 - Footer is not visible
         // 1 - Footer is partially visible
