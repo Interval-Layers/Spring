@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "net.intervallayers"
-version = "0.0.93"
+version = "0.0.94"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 configurations {
