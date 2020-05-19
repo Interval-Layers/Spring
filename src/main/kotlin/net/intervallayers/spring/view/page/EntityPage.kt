@@ -1,13 +1,15 @@
 package net.intervallayers.spring.view.page
 
 import kotlinx.html.*
-import net.intervallayers.spring.model.*
+import net.intervallayers.spring.repository.*
+import org.springframework.beans.factory.annotation.*
+import org.springframework.stereotype.*
 
+@Component
 class EntityPage : GenericPage() {
 
-    private lateinit var entities: List<Entity>
-
-    fun setEntities(entities: List<Entity>) = also { it.entities = entities }
+    @Autowired
+    private lateinit var entityRepository: EntityRepository
 
     override fun BODY.main() {
         main {
@@ -21,7 +23,7 @@ class EntityPage : GenericPage() {
                             td { text("TIME") }
                             td { text("NAME") }
                         }
-                        entities.forEach {
+                        entityRepository.findAll().forEach {
                             tr {
                                 td { text(it.id) }
                                 td { text(it.time) }

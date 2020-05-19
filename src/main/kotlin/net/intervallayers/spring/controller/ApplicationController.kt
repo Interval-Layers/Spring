@@ -1,6 +1,5 @@
 package net.intervallayers.spring.controller
 
-import net.intervallayers.spring.repository.*
 import net.intervallayers.spring.view.page.*
 import org.springframework.beans.factory.annotation.*
 import org.springframework.stereotype.*
@@ -10,13 +9,17 @@ import org.springframework.web.bind.annotation.*
 class ApplicationController {
 
     @Autowired
-    private lateinit var entityRepository: EntityRepository
+    private lateinit var indexPage: IndexPage
+
+    @Autowired
+    private lateinit var entityPage: EntityPage
 
     @ResponseBody
     @RequestMapping("/")
-    fun index(page: IndexPage) = page.setSizeOfEntities(entityRepository.count()).document
+    fun index() = indexPage.document
 
     @ResponseBody
     @RequestMapping("/entity")
-    fun entity(page: EntityPage) = page.setEntities(entityRepository.findAll()).document
+    fun entity() = entityPage.document
+
 }

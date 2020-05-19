@@ -2,6 +2,7 @@ package net.intervallayers.spring.view.page
 
 import kotlinx.html.*
 import net.intervallayers.extensions.html.*
+import org.springframework.beans.factory.annotation.*
 import org.springframework.http.*
 import org.springframework.stereotype.*
 import javax.servlet.http.*
@@ -9,13 +10,13 @@ import javax.servlet.http.*
 @Component
 class ErrorPage : GenericPage() {
 
+    @Autowired
     private lateinit var request: HttpServletRequest
+
     private val status by lazy {
         HttpStatus
             .valueOf(request.getAttribute("javax.servlet.error.status_code") as? Int ?: 400)
     }
-
-    fun setRequest(request: HttpServletRequest) = also { it.request = request }
 
     override fun BODY.main() {
         main {
