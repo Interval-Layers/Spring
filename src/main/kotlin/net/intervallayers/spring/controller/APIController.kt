@@ -2,8 +2,8 @@ package net.intervallayers.spring.controller
 
 import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.databind.node.*
-import net.intervallayers.spring.*
 import net.intervallayers.spring.model.*
+import net.intervallayers.spring.repository.*
 import org.springframework.beans.factory.annotation.*
 import org.springframework.web.bind.annotation.*
 import java.text.*

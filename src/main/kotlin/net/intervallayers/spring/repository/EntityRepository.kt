@@ -1,4 +1,4 @@
-package net.intervallayers.spring
+package net.intervallayers.spring.repository
 
 import net.intervallayers.spring.model.*
 import org.springframework.data.mongodb.repository.*

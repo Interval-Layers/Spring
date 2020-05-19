@@ -1,6 +1,6 @@
 package net.intervallayers.spring.controller
 
-import net.intervallayers.spring.*
+import net.intervallayers.spring.repository.*
 import net.intervallayers.spring.view.page.*
 import org.springframework.beans.factory.annotation.*
 import org.springframework.stereotype.*
