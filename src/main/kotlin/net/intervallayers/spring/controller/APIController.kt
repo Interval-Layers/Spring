@@ -20,16 +20,16 @@ class APIController {
     fun getAPI() = ""
 
     @RequestMapping("/api/entity")
-    fun getEntity() = entityRepository.list
+    fun getEntity(): List<Entity> = entityRepository.findAll()
 
     @RequestMapping("/api/entity/{name}", method = [RequestMethod.GET])
     fun getEntityByName(@PathVariable name: String) =
-        entityRepository.list.filter { it.name == name }
+        entityRepository.findAll().filter { it.name == name }
 
     @PostMapping("/api/insert/entity")
     fun insertEntity(@RequestBody entityName: String): ObjectNode {
         val entity = EntityBuilder()
-            .setId(entityRepository.size.toString())
+            .setId(entityRepository.count().toString())
             .setTime(SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(Date()))
             .setName(entityName)
             .build()

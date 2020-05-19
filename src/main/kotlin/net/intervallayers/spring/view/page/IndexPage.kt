@@ -10,9 +10,9 @@ import kotlin.properties.*
 @Component
 class IndexPage : GenericPage() {
 
-    private var sizeOfEntities by Delegates.notNull<Int>()
+    private var sizeOfEntities by Delegates.notNull<Long>()
 
-    fun setSizeOfEntities(size: Int) = also { sizeOfEntities = size }
+    fun setSizeOfEntities(size: Long) = also { sizeOfEntities = size }
 
     override fun BODY.main() {
         main {

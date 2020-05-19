@@ -14,9 +14,9 @@ class ApplicationController {
 
     @ResponseBody
     @RequestMapping("/")
-    fun index(page: IndexPage) = page.setSizeOfEntities(entityRepository.size).document
+    fun index(page: IndexPage) = page.setSizeOfEntities(entityRepository.count()).document
 
     @ResponseBody
     @RequestMapping("/entity")
-    fun entity(page: EntityPage) = page.setEntities(entityRepository.list).document
+    fun entity(page: EntityPage) = page.setEntities(entityRepository.findAll()).document
 }
