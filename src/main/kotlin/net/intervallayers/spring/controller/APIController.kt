@@ -52,4 +52,18 @@ class APIController {
             .put("status", "success")
             .putPOJO("entity", entity)
     }
+
+    @PostMapping("/api/delete/entity")
+    fun deleteEntity(@RequestBody entityId: String): ObjectNode {
+        return when (entityRepository.findById(entityId).isPresent) {
+            true -> ObjectMapper()
+                .createObjectNode()
+                .put("status", "success")
+                .also { entityRepository.deleteById(entityId) }
+            false -> ObjectMapper()
+                .createObjectNode()
+                .put("status", "error")
+                .put("description", "id not found")
+        }
+    }
 }
