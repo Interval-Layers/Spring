@@ -34,8 +34,7 @@ class APIController {
     fun getEntity(): List<Entity> = entityRepository.findAll()
 
     @RequestMapping("/api/entity/{name}", method = [RequestMethod.GET])
-    fun getEntityByName(@PathVariable name: String) =
-        entityRepository.findAll().filter { it.name == name }
+    fun getEntityByName(@PathVariable name: String) = entityRepository.findAllByName(name)
 
     @PostMapping("/api/insert/entity")
     fun insertEntity(@RequestBody entityName: String): ObjectNode {

@@ -5,4 +5,6 @@ import org.springframework.data.mongodb.repository.*
 import org.springframework.stereotype.*
 
 @Repository
-interface EntityRepository : MongoRepository<Entity, String>
+interface EntityRepository : MongoRepository<Entity, String> {
+    fun findAllByName(name: String): List<Entity>
+}
