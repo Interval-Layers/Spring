@@ -17,7 +17,18 @@ class APIController {
 
     @ResponseBody
     @RequestMapping("/api")
-    fun getAPI() = ""
+    fun getAPI(): ObjectNode {
+        return ObjectMapper()
+            .createObjectNode()
+            .apply {
+                putArray("api")
+                    .add("/api")
+                    .add("/api/entity")
+                    .add("/api/entity/{name}")
+                    .add("/api/insert/entity")
+                    .add("/api/delete/entity")
+            }
+    }
 
     @RequestMapping("/api/entity")
     fun getEntity(): List<Entity> = entityRepository.findAll()
