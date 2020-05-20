@@ -43,8 +43,7 @@ class APIController {
             .setTime(SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(Date()))
             .setName(entityName)
             .build()
-            // Temporally disabled
-            //.insert(entityRepository)
+            .apply { entityRepository.insert(this) }
 
         return ObjectMapper()
             .createObjectNode()
