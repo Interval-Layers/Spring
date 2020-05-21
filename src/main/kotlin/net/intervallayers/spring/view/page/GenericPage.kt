@@ -43,7 +43,7 @@ abstract class GenericPage : AbstractPage() {
     override fun HTML.head() = HeadBuilder(consumer)
         .addTitle(this@GenericPage.title)
         .setCharset()
-        .addMainStylesheet()
+        .addStylesheet("main.css")
         .toUnit()
 
     /**

@@ -12,19 +12,11 @@ class HeadBuilder(consumer: TagConsumer<*>) : HEAD(emptyMap, consumer) {
         meta(charset = charset)
     }
 
-    fun addMainStylesheet() = also {
+    fun addStylesheet(href: String) = also {
         link {
             rel = "stylesheet"
             type = "text/css"
-            href = "/stylesheet/main.css"
-        }
-    }
-
-    fun addAnotherStylesheet(href: String) = also {
-        link {
-            rel = "stylesheet"
-            type = "text/css"
-            this.href = href
+            this.href = "/stylesheet/$href"
         }
     }
 
