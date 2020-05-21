@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.*
 import com.fasterxml.jackson.databind.node.*
 import net.intervallayers.spring.model.*
 import net.intervallayers.spring.repository.*
+import org.bson.types.*
 import org.springframework.beans.factory.annotation.*
 import org.springframework.web.bind.annotation.*
 
@@ -13,7 +14,6 @@ class APIController {
     @Autowired
     private lateinit var entityRepository: EntityRepository
 
-    @ResponseBody
     @RequestMapping("/api")
     fun getAPI(): ObjectNode {
         return ObjectMapper()
@@ -46,7 +46,7 @@ class APIController {
     }
 
     @PostMapping("/api/delete/entity")
-    fun deleteEntity(@RequestBody entityId: String): ObjectNode {
+    fun deleteEntity(@RequestBody entityId: ObjectId): ObjectNode {
         return when (entityRepository.findById(entityId).isPresent) {
             true -> ObjectMapper()
                 .createObjectNode()
