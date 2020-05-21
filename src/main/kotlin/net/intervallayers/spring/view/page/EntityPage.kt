@@ -19,14 +19,12 @@ class EntityPage : GenericPage() {
                 article("card") {
                     table {
                         tr {
-                            td { text("ID") }
-                            td { text("TIME") }
-                            td { text("NAME") }
+                            td { text("id") }
+                            td { text("name") }
                         }
                         entityRepository.findAll().forEach {
                             tr {
-                                td { text(it.id) }
-                                td { text(it.time) }
+                                td { text(it.id.toHexString()) }
                                 td { button(classes = "apply-underline") { text(it.name) } }
                             }
                         }

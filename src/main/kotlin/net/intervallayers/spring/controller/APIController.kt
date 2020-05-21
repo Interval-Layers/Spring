@@ -6,8 +6,6 @@ import net.intervallayers.spring.model.*
 import net.intervallayers.spring.repository.*
 import org.springframework.beans.factory.annotation.*
 import org.springframework.web.bind.annotation.*
-import java.text.*
-import java.util.*
 
 @RestController
 class APIController {
@@ -38,12 +36,8 @@ class APIController {
 
     @PostMapping("/api/insert/entity")
     fun insertEntity(@RequestBody entityName: String): ObjectNode {
-        val entity = EntityBuilder()
-            .setId(entityRepository.count().toString())
-            .setTime(SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(Date()))
-            .setName(entityName)
-            .build()
-            .apply { entityRepository.insert(this) }
+        val entity = Entity(entityName)
+            .also { entityRepository.insert(it) }
 
         return ObjectMapper()
             .createObjectNode()

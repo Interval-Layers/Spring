@@ -22,7 +22,7 @@ function insertEntitySubmitEvent() {
 
             setValue("windowInsertEntityStatus", status, "apply-green", true)
             setValue("windowInsertEntityId", entity.id, "apply-orange")
-            setValue("windowInsertEntityTime", entity.time, "apply-orange")
+            setValue("windowInsertEntityDate", entity.id.date, "apply-orange")
             setValue("windowInsertEntityName", entity.name, "apply-orange")
         }
     }
