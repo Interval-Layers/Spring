@@ -6,37 +6,40 @@ import net.intervallayers.spring.model.*
 import net.intervallayers.spring.repository.*
 import org.bson.types.*
 import org.springframework.beans.factory.annotation.*
+import org.springframework.http.*
 import org.springframework.web.bind.annotation.*
+import java.net.*
 
 @RestController
+@RequestMapping("/api")
 class APIController {
 
     @Autowired
     private lateinit var entityRepository: EntityRepository
 
-    @RequestMapping("/api")
+    @GetMapping("/")
     fun getAPI(): ObjectNode {
         return ObjectMapper()
             .createObjectNode()
             .apply {
                 putArray("api")
-                    .add("/api")
-                    .add("/api/entity")
-                    .add("/api/entity/{name}")
-                    .add("/api/insert/entity")
-                    .add("/api/delete/entity")
+                    .addPOJO(API(URI("/"), HttpMethod.GET, "Provides all API"))
+                    .addPOJO(API(URI("/entity/"), HttpMethod.GET, "Provides all entity"))
+                    .addPOJO(API(URI("/entity/name/"), HttpMethod.GET, "Find all entity by name"))
+                    .addPOJO(API(URI("/entity/name/"), HttpMethod.PUT, "Create entity by name"))
+                    .addPOJO(API(URI("/entity/id/"), HttpMethod.DELETE, "Delete entity by id"))
             }
     }
 
-    @RequestMapping("/api/entity")
+    @GetMapping("/entity")
     fun getEntity(): List<Entity> = entityRepository.findAll()
 
-    @RequestMapping("/api/entity/{name}", method = [RequestMethod.GET])
-    fun getEntityByName(@PathVariable name: String) = entityRepository.findAllByName(name)
+    @GetMapping("/entity/name")
+    fun getEntityByName(@RequestBody name: String) = entityRepository.findAllByName(name)
 
-    @PostMapping("/api/insert/entity")
-    fun insertEntity(@RequestBody entityName: String): ObjectNode {
-        val entity = Entity(entityName)
+    @PutMapping("/entity/name")
+    fun putEntity(@RequestBody name: String): ObjectNode {
+        val entity = Entity(name)
             .also { entityRepository.insert(it) }
 
         return ObjectMapper()
@@ -45,13 +48,13 @@ class APIController {
             .putPOJO("entity", entity)
     }
 
-    @PostMapping("/api/delete/entity")
-    fun deleteEntity(@RequestBody entityId: ObjectId): ObjectNode {
-        return when (entityRepository.findById(entityId).isPresent) {
+    @DeleteMapping("/entity/id")
+    fun deleteEntity(@RequestBody id: ObjectId): ObjectNode {
+        return when (entityRepository.findById(id).isPresent) {
             true -> ObjectMapper()
                 .createObjectNode()
                 .put("status", "success")
-                .also { entityRepository.deleteById(entityId) }
+                .also { entityRepository.deleteById(id) }
             false -> ObjectMapper()
                 .createObjectNode()
                 .put("status", "error")

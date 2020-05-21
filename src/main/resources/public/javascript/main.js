@@ -27,7 +27,7 @@ function insertEntitySubmitEvent() {
         }
     }
 
-    new AjaxPostHandler(insertEntityInput.value, "/api/insert/entity", insertEntityHandler)
+    new AjaxJsonHandler(insertEntityInput.value, "PUT","/api/entity/name", insertEntityHandler)
     return false
 }
 
