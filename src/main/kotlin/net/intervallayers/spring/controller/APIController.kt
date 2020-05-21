@@ -18,17 +18,16 @@ class APIController {
     private lateinit var entityRepository: EntityRepository
 
     @GetMapping("/")
-    fun getAPI(): ObjectNode {
+    fun getAPI(): ArrayNode {
         return ObjectMapper()
-            .createObjectNode()
+            .createArrayNode()
             .apply {
-                putArray("api")
-                    .addPOJO(API(URI("/"), HttpMethod.GET, "Provides all API"))
-                    .addPOJO(API(URI("/entity/"), HttpMethod.GET, "Provides all entity"))
-                    .addPOJO(API(URI("/entity/size"), HttpMethod.GET, "Provides entity size"))
-                    .addPOJO(API(URI("/entity/name/"), HttpMethod.GET, "Find all entity by name"))
-                    .addPOJO(API(URI("/entity/name/"), HttpMethod.PUT, "Create entity by name"))
-                    .addPOJO(API(URI("/entity/id/"), HttpMethod.DELETE, "Delete entity by id"))
+                addPOJO(API(URI("/"), HttpMethod.GET, "Return array of all API"))
+                addPOJO(API(URI("/entity/"), HttpMethod.GET, "Provides all entity"))
+                addPOJO(API(URI("/entity/size"), HttpMethod.GET, "Provides entity size"))
+                addPOJO(API(URI("/entity/name/"), HttpMethod.GET, "Find all entity by name"))
+                addPOJO(API(URI("/entity/name/"), HttpMethod.PUT, "Create entity by name"))
+                addPOJO(API(URI("/entity/id/"), HttpMethod.DELETE, "Delete entity by id"))
             }
     }
 
