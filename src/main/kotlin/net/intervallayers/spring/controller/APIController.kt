@@ -38,10 +38,10 @@ class APIController {
     fun getEntitySize() = entityRepository.count()
 
     @GetMapping("/entity/name")
-    fun getEntityByName(@RequestBody name: String) = entityRepository.findAllByName(name)
+    fun getEntityByName(name: String) = entityRepository.findAllByName(name)
 
     @PutMapping("/entity/name")
-    fun putEntity(@RequestBody name: String): ObjectNode {
+    fun putEntity(name: String): ObjectNode {
         val entity = Entity(name)
             .also { entityRepository.insert(it) }
 
@@ -52,7 +52,7 @@ class APIController {
     }
 
     @DeleteMapping("/entity/id")
-    fun deleteEntity(@RequestBody id: ObjectId): ObjectNode {
+    fun deleteEntity(id: ObjectId): ObjectNode {
         return when (entityRepository.findById(id).isPresent) {
             true -> ObjectMapper()
                 .createObjectNode()
