@@ -23,6 +23,52 @@ internal class EntityRepositoryTest {
         entityThree = Entity("Test")
     }
 
+    @AfterEach
+    fun tearDown() {
+        entityRepository.deleteAll()
+    }
+
+    /**
+     * Checks whether all Entity documents can be found from the database.
+     */
+    @Test
+    fun findAll() {
+        entityRepository.insert(arrayListOf(entityOne, entityTwo, entityThree))
+
+        Assertions.assertArrayEquals(arrayOf(entityOne, entityTwo, entityThree), entityRepository.findAll().toTypedArray())
+    }
+
+    /**
+     * Checks that Entity documents are counted correctly in the database.
+     */
+    @Test
+    fun count() {
+        entityRepository.insert(arrayListOf(entityOne, entityTwo, entityThree))
+
+        Assertions.assertEquals(arrayOf(entityOne, entityTwo, entityThree).size.toLong(), entityRepository.count())
+    }
+
+    /**
+     * Checks whether all Entity documents can be deleted from the database.
+     */
+    @Test
+    fun deleteAll() {
+        entityRepository.insert(arrayListOf(entityOne, entityTwo, entityThree))
+        entityRepository.deleteAll()
+
+        Assertions.assertArrayEquals(emptyArray<Entity>(), entityRepository.findAll().toTypedArray())
+    }
+
+    /**
+     * Checks if an Entity document can be found using name in the database.
+     */
+    @Test
+    fun findAllByName() {
+        entityRepository.insert(arrayListOf(entityOne, entityTwo, entityThree))
+
+        Assertions.assertArrayEquals(arrayOf(entityOne, entityTwo, entityThree), entityRepository.findAllByName("Test").toTypedArray())
+    }
+
     /**
      * Checks whether an Entity document can be inserted into the database.
      */
@@ -51,37 +97,6 @@ internal class EntityRepositoryTest {
     }
 
     /**
-     * Checks whether all Entity documents can be deleted from the database.
-     */
-    @Test
-    fun deleteAll() {
-        entityRepository.insert(arrayListOf(entityOne, entityTwo, entityThree))
-        entityRepository.deleteAll()
-
-        Assertions.assertArrayEquals(emptyArray<Entity>(), entityRepository.findAll().toTypedArray())
-    }
-
-    /**
-     * Checks if an Entity document can be found using name in the database.
-     */
-    @Test
-    fun findByName() {
-        entityRepository.insert(arrayListOf(entityOne, entityTwo, entityThree))
-
-        Assertions.assertArrayEquals(arrayOf(entityOne, entityTwo, entityThree), entityRepository.findAllByName("Test").toTypedArray())
-    }
-
-    /**
-     * Checks whether all Entity documents can be found from the database.
-     */
-    @Test
-    fun findAll() {
-        entityRepository.insert(arrayListOf(entityOne, entityTwo, entityThree))
-
-        Assertions.assertArrayEquals(arrayOf(entityOne, entityTwo, entityThree), entityRepository.findAll().toTypedArray())
-    }
-
-    /**
      * Checks whether an Entity document can be deleted in the database.
      */
     @Test
@@ -94,21 +109,6 @@ internal class EntityRepositoryTest {
         entityRepository.delete(entityWrong)
 
         Assertions.assertArrayEquals(arrayOf(entity), entityRepository.findAll().toTypedArray())
-    }
-
-    /**
-     * Checks that Entity documents are counted correctly in the database.
-     */
-    @Test
-    fun count() {
-        entityRepository.insert(arrayListOf(entityOne, entityTwo, entityThree))
-
-        Assertions.assertEquals(arrayOf(entityOne, entityTwo, entityThree).size.toLong(), entityRepository.count())
-    }
-
-    @AfterEach
-    fun tearDown() {
-        entityRepository.deleteAll()
     }
 
 }
