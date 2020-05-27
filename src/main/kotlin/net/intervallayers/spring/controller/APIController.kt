@@ -24,7 +24,7 @@ class APIController {
             .apply {
                 addPOJO(API(URI("/"), HttpMethod.GET, "Return array of all API"))
                 addPOJO(API(URI("/entity/"), HttpMethod.GET, "Provides all entity"))
-                addPOJO(API(URI("/entity/size"), HttpMethod.GET, "Provides entity size"))
+                addPOJO(API(URI("/entity/count"), HttpMethod.GET, "Provides entity counter"))
                 addPOJO(API(URI("/entity/name/"), HttpMethod.GET, "Find all entity by name"))
                 addPOJO(API(URI("/entity/name/"), HttpMethod.PUT, "Create entity by name"))
                 addPOJO(API(URI("/entity/id/"), HttpMethod.DELETE, "Delete entity by id"))
@@ -34,8 +34,8 @@ class APIController {
     @GetMapping("/entity")
     fun getEntity(): List<Entity> = entityRepository.findAll()
 
-    @GetMapping("/entity/size")
-    fun getEntitySize() = entityRepository.count()
+    @GetMapping("/entity/count")
+    fun getEntityCount() = entityRepository.count()
 
     @GetMapping("/entity/name")
     fun getEntityByName(name: String) = entityRepository.findAllByName(name)
