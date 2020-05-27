@@ -59,7 +59,7 @@ class APIController {
      * @param name: String
      */
     @GetMapping("/entity/name")
-    fun getEntityByName(name: String) = entityRepository.findAllByName(name)
+    fun getEntityByName(@RequestParam name: String) = entityRepository.findAllByName(name)
 
     /**
      * Create Entity document in database by name
@@ -68,7 +68,7 @@ class APIController {
      * @param name: String
      */
     @PutMapping("/entity/name")
-    fun putEntity(name: String): ObjectNode {
+    fun putEntity(@RequestParam name: String): ObjectNode {
         val entity = Entity(name)
             .also { entityRepository.insert(it) }
 
@@ -85,7 +85,7 @@ class APIController {
      * @param id: ObjectId
      */
     @DeleteMapping("/entity/id")
-    fun deleteEntity(id: ObjectId): ObjectNode {
+    fun deleteEntity(@RequestParam id: ObjectId): ObjectNode {
         return when (entityRepository.findById(id).isPresent) {
             true -> ObjectMapper()
                 .createObjectNode()
