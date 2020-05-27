@@ -17,6 +17,11 @@ class APIController {
     @Autowired
     private lateinit var entityRepository: EntityRepository
 
+    /**
+     * Provides JSON array of all API
+     * @mapping "/api/"
+     * @method "GET"
+     */
     @GetMapping("/")
     fun getAPI(): ArrayNode {
         return ObjectMapper()
@@ -31,15 +36,37 @@ class APIController {
             }
     }
 
+    /**
+     * Provides JSON array of all Entity documents in database
+     * @mapping "/api/entity"
+     * @method "GET"
+     */
     @GetMapping("/entity")
     fun getEntity(): List<Entity> = entityRepository.findAll()
 
+    /**
+     * Provides counter of all Entity documents in database
+     * @mapping "/api/entity/count"
+     * @method "GET"
+     */
     @GetMapping("/entity/count")
     fun getEntityCount() = entityRepository.count()
 
+    /**
+     * Find all Entity documents in database by name
+     * @mapping "/api/entity/name"
+     * @method "GET"
+     * @param name: String
+     */
     @GetMapping("/entity/name")
     fun getEntityByName(name: String) = entityRepository.findAllByName(name)
 
+    /**
+     * Create Entity document in database by name
+     * @mapping "/api/entity/name"
+     * @method "PUT"
+     * @param name: String
+     */
     @PutMapping("/entity/name")
     fun putEntity(name: String): ObjectNode {
         val entity = Entity(name)
@@ -51,6 +78,12 @@ class APIController {
             .putPOJO("entity", entity)
     }
 
+    /**
+     * Delete Entity document in database by id
+     * @mapping "/api/entity/id
+     * @method "DELETE"
+     * @param id: ObjectId
+     */
     @DeleteMapping("/entity/id")
     fun deleteEntity(id: ObjectId): ObjectNode {
         return when (entityRepository.findById(id).isPresent) {
